@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	<definition name="base.definition" template="/WEB-INF/views/master/mainTemplate.jsp">
+		<put-attribute name="header" value="/WEB-INF/views/master/header.jsp"></put-attribute>
+		<put-attribute name="sidebar" value="/WEB-INF/views/master/sidebar.jsp"></put-attribute>
+		<put-attribute name="sidebarcontrol"
+			value="/WEB-INF/views/master/sidebarcontrol.jsp"></put-attribute>
+		<put-attribute name="body" value=""></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/views/master/footer.jsp"></put-attribute>
+	</definition>
+
+	<definition name="addEmployee" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/addEmployee.jsp"></put-attribute>
+	</definition>
+
+	<definition name="account_login" template="/WEB-INF/views/account/account_login.jsp">
+		<put-attribute name="body"
+			value="/WEB-INF/views/account/w_sheet_account_login.jsp"></put-attribute>
+	</definition>
+
+	<definition name="home_default" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/home/home_default.jsp"></put-attribute>
+	</definition>
+
+	<definition name="member_profile" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/member/member_profile.jsp"></put-attribute>
+	</definition>
+	<definition name="member_state" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/member/member_state.jsp"></put-attribute>
+	</definition>
+	<definition name="member_holiday" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/member/member_holiday.jsp"></put-attribute>
+	</definition>
+	<definition name="member_worktime" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/member/member_worktime.jsp"></put-attribute>
+	</definition>
+	<definition name="member_workout" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/member/member_workout.jsp"></put-attribute>
+	</definition>
+	<definition name="member_approve_edittime" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/member/member_approve_edittime.jsp"></put-attribute>
+	</definition>
+	<definition name="member_approve_leave" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/member/member_approve_leave.jsp"></put-attribute>
+	</definition>
+	<definition name="member_approve_ot" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/member/member_approve_ot.jsp"></put-attribute>
+	</definition>
+	<definition name="member_ot_sumary" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/member/member_ot_sumary.jsp"></put-attribute>
+	</definition>
+	<definition name="member_approve_workout" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/member/member_approve_workout.jsp"></put-attribute>
+	</definition>
+	<definition name="member_edit_shifttime" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/member/member_edit_shifttime.jsp"></put-attribute>
+	</definition>
+	<definition name="reportR01" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/report/reportR01.jsp"></put-attribute>
+	</definition>
+	<definition name="reportR02" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/report/reportR02.jsp"></put-attribute>
+	</definition>
+	<definition name="manageAdmin" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/manageAdmin.jsp"></put-attribute>
+	</definition>
+	<definition name="admin_config_disabled_request" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/admin_config_disabled_request.jsp"></put-attribute>
+	</definition>
+	<definition name="admin_config_unlock_request" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/admin_config_unlock_request.jsp"></put-attribute>
+	</definition>
+	<!-- PCCATest -->
+	<definition name="ca_home" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/views/pcca/ca_home.jsp"></put-attribute>
+	</definition>
+	<definition name="ca_request" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/views/pcca/ca_request.jsp"></put-attribute>
+	</definition>
+	<definition name="reimburse_home" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/views/pcca/reimburse_home.jsp"></put-attribute>
+	</definition>
+	<definition name="referForm" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/views/pcca/referForm.jsp"></put-attribute>
+	</definition>
+
+
+</tiles-definitions>

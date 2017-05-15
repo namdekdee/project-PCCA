@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	<definition name="base.definition" template="/WEB-INF/views/master/mainTemplate.jsp">
+		<put-attribute name="body" value=""></put-attribute>
+	</definition>
+
+	<definition name="addEmployee" extends="base.definition">
+		<put-attribute name="title" value="Employee Data Form"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/addEmployee.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="w_sheet_account_login" template="/WEB-INF/views/account/w_sheet_account_login.jsp">
+		<put-attribute name="title" value="Hris | Log in"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/account/w_sheet_account_login.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="home_default" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/home/home_default.jsp"></put-attribute>
+	</definition>
+		<definition name="unittest_workflow" extends="base.definition">
+		<put-attribute name="body"
+			value="/WEB-INF/views/unittest/unittest_workflow.jsp"></put-attribute>
+	</definition>
+</tiles-definitions>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+
+	<Properties>
+		<Property name="log-path">/hris/project/hrisservice/logs</Property>
+	</Properties>
+
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{DEFAULT} %-5level (%file:%line) - %msg%n%throwable" />
+		</Console>
+		<RollingFile name="RollingFile" fileName="${log-path}/hrisservice.log" filePattern="${log-path}/hrisservice-%d{yyyy-MM-dd}-%i.log">
+			<PatternLayout pattern="%d{DEFAULT} %-5level %logger{1}:%line - %msg%n%throwable" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="10 MB" />
+			</Policies>
+			<DefaultRolloverStrategy max="10" />
+		</RollingFile>
+	</Appenders>
+
+	<Loggers>
+		
+		<Root level="INFO">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="RollingFile" />
+		</Root>
+		
+		<Logger name="th.co.pt.hris.hrisservice" level="debug" additivity="false">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="RollingFile" />
+		</Logger>
+
+	</Loggers>
+
+</Configuration>

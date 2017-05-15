@@ -1,0 +1,1514 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.1.final using JasperReports Library version 6.3.1  -->
+<!-- 2017-03-31T09:35:09 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="R01" pageWidth="1024" pageHeight="650" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="984" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty" uuid="1f05b58c-8012-495e-9aa7-7d3ca628d6f4">
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<style name="Style1" mode="Opaque" backcolor="#FFFFFF">
+		<conditionalStyle>
+			<conditionExpression><![CDATA["T".equals($F{remark})]]></conditionExpression>
+			<style mode="Opaque" backcolor="#FF0000"/>
+		</conditionalStyle>
+	</style>
+	<style name="Style2" backcolor="#FFFFFF">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[( (" ".equals($F{timein}) && " ".equals($F{timeout}) ) && $F{dayabsent}==1 ) || 
+( ( " ".equals($F{timein}) && " ".equals($F{timeout}) )&&  $F{qtydayleave}<1 )  || 
+( !" ".equals($F{timein}) && " ".equals($F{timeout}) )]]></conditionExpression>
+			<style mode="Opaque" backcolor="#D6D6D6"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="Empty Dataset1" uuid="ba3307e3-641b-4d8c-b843-706c6215d9f0"/>
+	<parameter name="startDate" class="java.lang.String"/>
+	<parameter name="endDate" class="java.lang.String"/>
+	<parameter name="printBy" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select company_code,company_name_th from hris_company]]>
+	</queryString>
+	<field name="company" class="java.lang.String"/>
+	<field name="unitwork" class="java.lang.String"/>
+	<field name="codempid" class="java.lang.String"/>
+	<field name="namemp" class="java.lang.String"/>
+	<field name="nampost" class="java.lang.String"/>
+	<field name="typpayrollnamt" class="java.lang.String"/>
+	<field name="startwork" class="java.lang.String"/>
+	<field name="dteeffex" class="java.lang.String"/>
+	<field name="dtework" class="java.lang.String"/>
+	<field name="codshift" class="java.lang.String"/>
+	<field name="timein" class="java.lang.String"/>
+	<field name="timeout" class="java.lang.String"/>
+	<field name="timstrtw" class="java.lang.String"/>
+	<field name="timendw" class="java.lang.String"/>
+	<field name="cal_time_in_out" class="java.lang.Integer"/>
+	<field name="qtydaywk" class="java.lang.String"/>
+	<field name="qtydaywork" class="java.lang.String"/>
+	<field name="ot1" class="java.lang.Double"/>
+	<field name="ot15" class="java.lang.Double"/>
+	<field name="ot2" class="java.lang.Double"/>
+	<field name="ot3" class="java.lang.Double"/>
+	<field name="ot1_m" class="java.lang.Integer"/>
+	<field name="ot15_m" class="java.lang.Integer"/>
+	<field name="ot2_m" class="java.lang.Integer"/>
+	<field name="ot3_m" class="java.lang.Integer"/>
+	<field name="late" class="java.lang.String"/>
+	<field name="codleave" class="java.lang.String"/>
+	<field name="namleavcdt" class="java.lang.String"/>
+	<field name="qtydayleave" class="java.lang.Double"/>
+	<field name="place" class="java.lang.String"/>
+	<field name="remark" class="java.lang.String"/>
+	<field name="periodstart" class="java.lang.String"/>
+	<field name="periodend" class="java.lang.String"/>
+	<field name="desholdyt" class="java.lang.String"/>
+	<field name="qtylate" class="java.lang.Integer"/>
+	<field name="daylate" class="java.lang.Double"/>
+	<field name="dayabsent" class="java.lang.Double"/>
+	<field name="qtyabsent" class="java.lang.Integer"/>
+	<field name="p1Qty" class="java.lang.Double"/>
+	<field name="p6Qty" class="java.lang.Double"/>
+	<field name="p2Qty" class="java.lang.Double"/>
+	<field name="p3Qty" class="java.lang.Double"/>
+	<field name="p5Qty" class="java.lang.Double"/>
+	<field name="s1Qty" class="java.lang.Double"/>
+	<field name="s4Qty" class="java.lang.Double"/>
+	<field name="v1Qty" class="java.lang.Double"/>
+	<field name="p1Use" class="java.lang.Double"/>
+	<field name="p6Use" class="java.lang.Double"/>
+	<field name="p2Use" class="java.lang.Double"/>
+	<field name="p3Use" class="java.lang.Double"/>
+	<field name="p5Use" class="java.lang.Double"/>
+	<field name="s1Use" class="java.lang.Double"/>
+	<field name="s4Use" class="java.lang.Double"/>
+	<field name="v1Use" class="java.lang.Double"/>
+	<field name="remarkEditTime" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="qtydaywh" class="java.lang.Double" resetType="Group" resetGroup="EMP" calculation="Sum">
+		<variableExpression><![CDATA[Double.parseDouble( (" ".equals($F{timein})) && (" ".equals($F{timeout}) ) ? "0 ":$F{qtydaywk})]]></variableExpression>
+	</variable>
+	<variable name="qtydaywork" class="java.lang.Double" resetType="Group" resetGroup="EMP" calculation="Sum">
+		<variableExpression><![CDATA[Double.parseDouble($F{qtydaywork})==0.375||Double.parseDouble($F{qtydaywork})==0.625?0.5:Double.parseDouble($F{qtydaywork})>0?Double.parseDouble($F{qtydaywork}):0
+
+/*(!" ".equals($F{timein})) && (!" ".equals($F{timeout})) ?Double.parseDouble($F{qtydaywork}): (!" ".equals($F{timein})) && (" ".equals($F{timeout})) ?0.5: (" ".equals($F{timein})) && (!" ".equals($F{timeout})) ?0.5:0*/
+
+/*Double.parseDouble((" ".equals($F{timein})) && (" ".equals($F{timeout})) ? "0" : $F{qtydaywork})*/]]></variableExpression>
+	</variable>
+	<variable name="OT1" class="java.lang.String" resetType="Group" resetGroup="EMP">
+		<variableExpression><![CDATA["0".equals($F{ot1})?"0":$F{ot1}]]></variableExpression>
+	</variable>
+	<variable name="OT15" class="java.lang.String" resetType="Group" resetGroup="EMP">
+		<variableExpression><![CDATA["0".equals($F{ot15})?"0":$F{ot15}]]></variableExpression>
+	</variable>
+	<variable name="OT2" class="java.lang.String" resetType="Group" resetGroup="EMP">
+		<variableExpression><![CDATA["0".equals($F{ot2})?"0" :$F{ot2}]]></variableExpression>
+	</variable>
+	<variable name="OT3" class="java.lang.String" resetType="Group" resetGroup="EMP">
+		<variableExpression><![CDATA["0".equals($F{ot3})?"0":$F{ot3}]]></variableExpression>
+	</variable>
+	<variable name="ttSumH" class="java.lang.Integer" resetType="Group" resetGroup="EMP" calculation="Sum">
+		<variableExpression><![CDATA[!" ".equals($F{timein})&&" ".equals($F{timeout})?0:$F{cal_time_in_out}>=480?480:$F{cal_time_in_out}  
+
+/* ($F{cal_time_in_out}/60)>=8?(8*60):$F{cal_time_in_out} */]]></variableExpression>
+	</variable>
+	<variable name="ttSumM" class="java.lang.Integer" resetType="Group" resetGroup="EMP" calculation="Sum">
+		<variableExpression><![CDATA[!" ".equals($F{timeout})?$F{cal_time_in_out}:0
+
+
+
+/*  !" ".equals($F{timeout})?$F{cal_time_in_out}>0?$F{cal_time_in_out}/60+"."+new DecimalFormat("00").format($F{cal_time_in_out}%60):"":""  */]]></variableExpression>
+	</variable>
+	<variable name="tt_OT1H" class="java.lang.Integer" resetType="Group" resetGroup="EMP" calculation="Sum">
+		<variableExpression><![CDATA[$F{ot1_m}
+
+/*Integer.parseInt(new DecimalFormat("0.##").format($F{ot1}).split( "\\." )[0])*/]]></variableExpression>
+	</variable>
+	<variable name="tt_OT1M" class="java.lang.Integer" resetType="Group" resetGroup="EMP" calculation="Sum">
+		<variableExpression><![CDATA[Integer.parseInt(new DecimalFormat("#.00").format($F{ot1}).split( "\\." )[1])]]></variableExpression>
+	</variable>
+	<variable name="tt_OT15H" class="java.lang.Integer" resetType="Group" resetGroup="EMP" calculation="Sum">
+		<variableExpression><![CDATA[$F{ot15_m}
+
+/*Integer.parseInt(new DecimalFormat("0.##").format($F{ot15}).split( "\\." )[0])*/]]></variableExpression>
+	</variable>
+	<variable name="tt_OT15M" class="java.lang.Integer" resetType="Group" resetGroup="EMP" calculation="Sum">
+		<variableExpression><![CDATA[Integer.parseInt(new DecimalFormat("#.00").format($F{ot15}).split( "\\." )[1])]]></variableExpression>
+	</variable>
+	<variable name="tt_OT2H" class="java.lang.Integer" resetType="Group" resetGroup="EMP" calculation="Sum">
+		<variableExpression><![CDATA[$F{ot2_m}
+
+
+/*Integer.parseInt(new DecimalFormat("0.##").format($F{ot2}).split( "\\." )[0])*/]]></variableExpression>
+	</variable>
+	<variable name="tt_OT2M" class="java.lang.Integer" resetType="Group" resetGroup="EMP" calculation="Sum">
+		<variableExpression><![CDATA[Integer.parseInt(new DecimalFormat("#.00").format($F{ot2}).split( "\\." )[1])]]></variableExpression>
+	</variable>
+	<variable name="tt_OT3H" class="java.lang.Integer" resetType="Group" resetGroup="EMP" calculation="Sum">
+		<variableExpression><![CDATA[$F{ot3_m}
+
+/*Integer.parseInt(new DecimalFormat("0.##").format($F{ot3}).split( "\\." )[0])*/]]></variableExpression>
+	</variable>
+	<variable name="tt_OT3M" class="java.lang.Integer" resetType="Group" resetGroup="EMP" calculation="Sum">
+		<variableExpression><![CDATA[Integer.parseInt(new DecimalFormat("#.00").format($F{ot3}).split( "\\." )[1])]]></variableExpression>
+	</variable>
+	<variable name="tt_lateH" class="java.lang.Integer" resetType="Group" resetGroup="EMP" calculation="Sum">
+		<variableExpression><![CDATA[$F{qtylate}]]></variableExpression>
+	</variable>
+	<variable name="tt_absentH" class="java.lang.Double" resetType="Group" resetGroup="EMP" calculation="Sum">
+		<variableExpression><![CDATA[$F{qtyabsent}]]></variableExpression>
+	</variable>
+	<variable name="tt_V1" class="java.lang.Double" resetType="Group" resetGroup="EMP" calculation="Sum">
+		<variableExpression><![CDATA["V1".equals(  $F{codleave} )?($F{qtydayleave}==0.375||$F{qtydayleave}==0.625)?0.5:$F{qtydayleave}:0]]></variableExpression>
+	</variable>
+	<variable name="tt_P1" class="java.lang.Double" resetType="Group" resetGroup="EMP" calculation="Sum">
+		<variableExpression><![CDATA["P1".equals($F{codleave}) || "P6".equals($F{codleave})?$F{qtydayleave}>0.3&&$F{qtydayleave}<1?0.5:$F{qtydayleave}:0]]></variableExpression>
+	</variable>
+	<variable name="tt_S1" class="java.lang.Double" resetType="Group" resetGroup="EMP" calculation="Sum">
+		<variableExpression><![CDATA["S1".equals($F{codleave})?($F{qtydayleave}!=0&&$F{qtydayleave}<1)?0.5:$F{qtydayleave}:0]]></variableExpression>
+	</variable>
+	<variable name="tt_S4" class="java.lang.Double" resetType="Group" resetGroup="EMP" calculation="Sum">
+		<variableExpression><![CDATA["S4".equals($F{codleave})?$F{qtydayleave}:0]]></variableExpression>
+	</variable>
+	<variable name="tt_P3" class="java.lang.Double" resetType="Group" resetGroup="EMP" calculation="Sum">
+		<variableExpression><![CDATA["P3".equals($F{codleave})?$F{qtydayleave}:0]]></variableExpression>
+	</variable>
+	<variable name="tt_P2" class="java.lang.Double" resetType="Group" resetGroup="EMP" calculation="Sum">
+		<variableExpression><![CDATA["P2".equals($F{codleave})?$F{qtydayleave}:0]]></variableExpression>
+	</variable>
+	<variable name="tt_ZZ" class="java.lang.Double" resetType="Group" resetGroup="EMP" calculation="Sum">
+		<variableExpression><![CDATA[(!"P1".equals($F{codleave}))&&(!"P6".equals($F{codleave})) && (!"V1".equals($F{codleave})) && (!"S1".equals($F{codleave})) && (!"S4".equals($F{codleave})) ?($F{qtydayleave}!=0&&$F{qtydayleave}<1)?0.5:$F{qtydayleave}:0]]></variableExpression>
+	</variable>
+	<variable name="sumQtyDayWork" class="java.lang.Double" calculation="Sum"/>
+	<variable name="var_P1" class="java.lang.Double" resetType="Group" resetGroup="DteWork Group" calculation="Sum">
+		<variableExpression><![CDATA["P1".equals( $F{codleave} )|| "P6".equals( $F{codleave} )?($F{qtydayleave}==0.375||$F{qtydayleave}==0.625)?0.5:$F{qtydayleave}:0]]></variableExpression>
+	</variable>
+	<variable name="var_V1" class="java.lang.Double" resetType="Group" resetGroup="DteWork Group" calculation="Sum">
+		<variableExpression><![CDATA["V1".equals(  $F{codleave} )?($F{qtydayleave}==0.375||$F{qtydayleave}==0.625)?0.5:$F{qtydayleave}:0]]></variableExpression>
+	</variable>
+	<variable name="sumDay" class="java.lang.Double" resetType="Group" resetGroup="DteWork Group" calculation="Sum">
+		<variableExpression><![CDATA[!"".equals($F{timeout})?$F{qtydayleave}!=null?($F{qtydayleave}==0.375||$F{qtydayleave}==0.625)?0.5:$F{qtydayleave}:0:0]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="normalTime" class="java.lang.Integer" resetType="None">
+		<variableExpression><![CDATA[!" ".equals($F{timein})&&" ".equals($F{timeout})?0:$F{cal_time_in_out}>=480?480:$F{cal_time_in_out}]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="calDay" class="java.lang.Double">
+		<variableExpression><![CDATA[!" ".equals($F{timein})&&!" ".equals($F{timeout})?$F{qtylate}>0||$F{qtyabsent}>0?1-($V{sumDay}+$F{dayabsent}+$F{daylate}):0:0]]></variableExpression>
+	</variable>
+	<variable name="sumCalDay" class="java.lang.Double">
+		<variableExpression><![CDATA[$V{calDay}!=0? $V{calDay}:(!" ".equals($F{timein}) && !" ".equals($F{timeout}) )?1:0
+
+
+
+/*calDay >> $F{qtylate}>0||$F{qtyabsent}>0?1-($V{sumDay}+$F{dayabsent}+$F{daylate}):0  */]]></variableExpression>
+	</variable>
+	<variable name="ttDay" class="java.lang.Double" resetType="Group" resetGroup="EMP" calculation="Sum">
+		<variableExpression><![CDATA[!"".equals($F{timeout})?$V{sumCalDay}:0
+
+/*!" ".equals($V{sumCalDay})?Double.parseDouble($V{sumCalDay}):0*/]]></variableExpression>
+	</variable>
+	<group name="EMP" isStartNewPage="true" isResetPageNumber="true" isReprintHeaderOnEachPage="true">
+		<groupExpression><![CDATA[$F{codempid}]]></groupExpression>
+		<groupFooter>
+			<band height="20">
+				<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				<staticText>
+					<reportElement x="0" y="0" width="180" height="20" backcolor="#FFFFFF" uuid="74274a15-58f9-42bd-b5d9-92ba64743d8c">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<text><![CDATA[รวม]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="230" y="0" width="50" height="20" uuid="a918d324-1cfd-42f0-b18a-b2e48bee92ea">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($V{ttSumH}%60)/10>0?($V{ttSumH}/60)+"."+($V{ttSumH}%60):($V{ttSumH}/60)+".0"+($V{ttSumH}%60)]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="280" y="0" width="50" height="20" uuid="fe36929d-d3cb-425a-a756-7ac5171a7199">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new DecimalFormat("0.##").format($V{ttDay}.doubleValue())]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="180" y="0" width="50" height="20" uuid="55471685-0f2b-4784-9a15-37ca804d07bc">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{ttSumM}>0?($V{ttSumM}/60)+"."+ new DecimalFormat("00").format($V{ttSumM}%60):0]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="330" y="0" width="35" height="20" uuid="c51fd583-e773-4f9f-8187-7416ea216113">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{tt_OT1H}>0?(($V{tt_OT1H}%60)/10)>0? ($V{tt_OT1H}/60)+"."+($V{tt_OT1H}%60):($V{tt_OT1H}/60)+".0"+($V{tt_OT1H}%60): ($V{tt_OT1H}/60)+"."+($V{tt_OT1H}%60)]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="365" y="0" width="35" height="20" uuid="b8898fd8-2445-49bc-9da6-d9aad399551c">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{tt_OT15H}>0?(($V{tt_OT15H}%60)/10)>0? ($V{tt_OT15H}/60)+"."+($V{tt_OT15H}%60):($V{tt_OT15H}/60)+".0"+($V{tt_OT15H}%60): ($V{tt_OT15H}/60)+"."+($V{tt_OT15H}%60)]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="400" y="0" width="35" height="20" uuid="107b5176-4538-4887-886c-5fa702c793a5">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{tt_OT2H}>0?(($V{tt_OT2H}%60)/10>0)? ($V{tt_OT2H}/60)+"."+($V{tt_OT2H}%60):($V{tt_OT2H}/60)+".0"+($V{tt_OT2H}%60): ($V{tt_OT2H}/60)+"."+($V{tt_OT2H}%60)]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="435" y="0" width="35" height="20" uuid="8edae16d-6e1b-424b-b0d8-14b04a84a3be"/>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{tt_OT3H}>0?(($V{tt_OT3H}%60)/10)>0? ($V{tt_OT3H}/60)+"."+($V{tt_OT3H}%60):($V{tt_OT3H}/60)+".0"+($V{tt_OT3H}%60): ($V{tt_OT3H}/60)+"."+($V{tt_OT3H}%60)]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="470" y="0" width="40" height="20" uuid="cbe93375-c42e-4c17-b9df-1152053a55a7">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{tt_lateH}>=60?$V{tt_lateH}/60+"."+$V{tt_lateH}%60:$V{tt_lateH}>0?"0."+$V{tt_lateH}:""]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="590" y="0" width="45" height="20" uuid="d1ad652a-9f3a-4fcf-9bd1-39832778c35a">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{tt_V1}<0.3?$V{tt_V1}==0?"":new DecimalFormat("0.##").format($V{tt_V1}):$V{tt_V1}>0?new DecimalFormat("0.##").format($V{tt_V1}):""]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="510" y="0" width="40" height="20" uuid="3b345af7-baa8-4c3a-ae4f-0bf29b4d9478">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{tt_absentH}>0?(($V{tt_absentH}%60)/10)==0?(int)($V{tt_absentH}/60)+".0"+new DecimalFormat("0").format(($V{tt_absentH}%60)):(int)($V{tt_absentH}/60)+"."+new DecimalFormat("0").format($V{tt_absentH}%60):"" 
+
+
+/*$V{tt_absentH}>0?new DecimalFormat("0").format($V{tt_absentH}/60)+"."+new DecimalFormat("0").format($V{tt_absentH}-(($V{tt_absentH}/60)*60)):""*/]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="550" y="0" width="40" height="20" uuid="8937a2f0-c4b5-4ea5-bc8f-a7dbdafd792f">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{tt_P1}<0.3?$V{tt_P1}==0?"":new DecimalFormat("0.##").format($V{tt_P1}):$V{tt_P1}>0?new DecimalFormat("0.##").format($V{tt_P1}):""]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="635" y="0" width="40" height="20" uuid="f1629122-1a53-4148-9840-9021538fc7e0">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{tt_S1}>0?$V{tt_S1}:""]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="675" y="0" width="40" height="20" uuid="b02426b7-7726-4055-aef1-c377e8114b4c">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{tt_S4}>0?$V{tt_S4}:""]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="715" y="0" width="40" height="20" uuid="e2d99382-8328-4ae7-9a8a-eee97216f743">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+					<textElement textAlignment="Center">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{tt_ZZ}>0?$V{tt_ZZ}:""]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="755" y="0" width="125" height="20" uuid="5b83c351-3159-4abb-b04e-c5ecfc2d200d">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement x="880" y="0" width="105" height="20" uuid="1942cdbe-8f34-405d-ba40-e8c4cae39d37">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<box>
+						<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
+					</box>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="DteWork Group">
+		<groupExpression><![CDATA[$F{dtework}]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+		<groupFooter>
+			<band height="20">
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+					<reportElement style="Style2" stretchType="RelativeToBandHeight" x="675" y="0" width="40" height="20" uuid="0d453b58-d3d7-4a72-9675-9c859a663e48">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<box leftPadding="2" rightPadding="2">
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA["S4".equals($F{codleave})?($F{qtydayleave}!=0&&$F{qtydayleave}<1)?0.5:$F{qtydayleave}:""
+/*"S4".equals($F{codleave})?new DecimalFormat("0.#").format($F{qtydayleave}):" "*/]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+					<reportElement style="Style2" stretchType="RelativeToBandHeight" x="180" y="0" width="50" height="20" uuid="bea0c368-a943-4190-a4bc-5a26b5ae62bc">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<box leftPadding="2" rightPadding="2">
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[!" ".equals($F{timeout})?$F{cal_time_in_out}>0?$F{cal_time_in_out}/60+"."+new DecimalFormat("00").format($F{cal_time_in_out}%60):"":""]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+					<reportElement style="Style2" stretchType="RelativeToBandHeight" x="510" y="0" width="40" height="20" uuid="e3b63cd2-67f8-4db7-b918-a6b0c329d0b0">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<box leftPadding="2" rightPadding="2">
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{qtyabsent}>0?(($F{qtyabsent}%60)/10)<0?new DecimalFormat("0").format($F{qtyabsent}/60)+".0"+($F{qtyabsent}%60):new DecimalFormat("0").format($F{qtyabsent}/60)+"."+new DecimalFormat("0").format($F{qtyabsent}%60):""]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+					<reportElement style="Style2" stretchType="RelativeToBandHeight" x="635" y="0" width="40" height="20" uuid="d51f06f1-40b9-41a5-a1ab-ebfacf5aee98">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<box leftPadding="2" rightPadding="2">
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA["S1".equals($F{codleave})?($F{qtydayleave}!=0&&$F{qtydayleave}<1)?0.5:$F{qtydayleave}:""
+/*"S1".equals($F{codleave})?new DecimalFormat("0.#").format($F{qtydayleave}):" "*/]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+					<reportElement style="Style2" stretchType="RelativeToBandHeight" x="590" y="0" width="45" height="20" uuid="d5b66782-1ffc-4035-99bd-1c593ceda50c"/>
+					<box leftPadding="2" rightPadding="2">
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{var_V1}>0?new DecimalFormat("0.##").format($V{var_V1}):""
+
+
+/*"V1".equals(  $F{codleave} )?($F{qtydayleave}>0.3&&$F{qtydayleave}<1)?0.5:$F{qtydayleave}<0.3?new DecimalFormat("0.##").format($F{qtydayleave}):new DecimalFormat("0.#").format($F{qtydayleave}):""*/]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+					<reportElement style="Style2" stretchType="RelativeToBandHeight" x="715" y="0" width="40" height="20" uuid="9ae7fbcd-4fa2-493a-9b6a-8e0c5ae4bb30">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<box leftPadding="2" rightPadding="2">
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[(!"P1".equals($F{codleave}))&&(!"P6".equals($F{codleave})) && (!"V1".equals($F{codleave})) && (!"S1".equals($F{codleave})) && (!"S4".equals($F{codleave})) ?($F{qtydayleave}!=0&&$F{qtydayleave}<1)?0.5:$F{qtydayleave}:""]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+					<reportElement style="Style2" stretchType="RelativeToBandHeight" x="435" y="0" width="35" height="20" uuid="c4260f9d-1288-453c-a9c3-4a1b2d4d62ab">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<box leftPadding="2" rightPadding="2">
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ot3}.doubleValue() != 0.0 ? new DecimalFormat("0.0#").format($F{ot3}) : ""]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+					<reportElement style="Style2" stretchType="RelativeToBandHeight" x="280" y="0" width="50" height="20" uuid="dae42b63-5e98-4b9a-8ca5-69e38acd3df3">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<box leftPadding="2" rightPadding="2">
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[!" ".equals($F{timein}) &&" ".equals($F{timeout})?"":$V{calDay}!=0?new DecimalFormat("0.##").format($V{calDay}):(!" ".equals($F{timein}) && !" ".equals($F{timeout}) )?1:""
+
+
+/* $V{calDay}!=0?new DecimalFormat("0.##").format($V{calDay}):(!" ".equals($F{timein}) && !" ".equals($F{timeout}) )?1:"" */]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+					<reportElement style="Style2" stretchType="RelativeToBandHeight" x="0" y="0" width="55" height="20" uuid="b58428af-0a8d-4ee2-9bb9-d614fec61b49"/>
+					<box leftPadding="2" rightPadding="2">
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{dtework}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+					<reportElement style="Style2" stretchType="RelativeToBandHeight" x="95" y="0" width="85" height="20" uuid="62fbfa8b-3335-43ce-a2e6-d55da3adf7ca">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<box leftPadding="2" rightPadding="2">
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[(!" ".equals($F{timein})) && (!" ".equals($F{timeout}) )?$F{timein} + " - " + $F{timeout}:(!" ".equals($F{timein})) && (" ".equals($F{timeout}) )?$F{timein}:""]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+					<reportElement style="Style2" stretchType="RelativeToBandHeight" x="470" y="0" width="40" height="20" uuid="06191d08-ba62-4363-86fc-dce58c0004b1">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<box leftPadding="2" rightPadding="2">
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{qtylate}>=60?$F{qtylate}/60+"."+$F{qtylate}%60:$F{qtylate}>0?"0."+$F{qtylate}:""]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+					<reportElement style="Style2" stretchType="RelativeToBandHeight" x="365" y="0" width="35" height="20" uuid="3abbdab6-f7c5-4322-93d6-7b6b830b8ecd">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<box leftPadding="2" rightPadding="2">
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ot15}.doubleValue() != 0.0 ? new DecimalFormat("0.0#").format($F{ot15}) : ""]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+					<reportElement style="Style2" stretchType="RelativeToBandHeight" x="755" y="0" width="125" height="20" uuid="05a3dda1-8d67-4c79-8525-d7a98def7639">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<box leftPadding="2" rightPadding="2">
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement>
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{place}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+					<reportElement style="Style2" stretchType="RelativeToBandHeight" x="330" y="0" width="35" height="20" uuid="367da456-0818-43f7-90c8-34e049cc6e52">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<box leftPadding="2" rightPadding="2">
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ot1}.doubleValue() != 0.0 ? new DecimalFormat("0.0#").format($F{ot1}) : ""]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+					<reportElement style="Style2" stretchType="RelativeToBandHeight" x="400" y="0" width="35" height="20" uuid="9db112a2-227f-499c-b548-6be3c6c87160">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<box leftPadding="2" rightPadding="2">
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ot2}.doubleValue() != 0.0 ? new DecimalFormat("0.0#").format($F{ot2}) : ""]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+					<reportElement style="Style2" stretchType="RelativeToBandHeight" x="230" y="0" width="50" height="20" uuid="91ee7cc9-d68e-4d8c-b559-f051e71daaab">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<box leftPadding="2" rightPadding="2">
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{normalTime} ==0? "": ($V{normalTime} /60)>=8? "8":($V{normalTime}%60)/10>0? $V{normalTime} /60+"."+($V{normalTime}%60):$V{normalTime} /60+".0"+($V{normalTime}%60)
+
+
+/* $V{normalTime} >> " ".equals($F{timeout})?0:$F{cal_time_in_out}>=480?480:$F{cal_time_in_out}  */
+
+/*!" ".equals($F{timeout})?($F{cal_time_in_out}/60)>=8?"8":$F{cal_time_in_out}>0?$F{cal_time_in_out}/60+"."+new DecimalFormat("00").format($F{cal_time_in_out}%60):"":"" */]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+					<reportElement style="Style2" stretchType="RelativeToBandHeight" x="550" y="0" width="40" height="20" uuid="e23ee193-72bf-4fbf-9849-760838382cd3">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<box leftPadding="2" rightPadding="2">
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{var_P1}>0?new DecimalFormat("0.##").format($V{var_P1}):""
+
+/*"P1".equals( $F{codleave} )|| "P6".equals( $F{codleave} )?($F{qtydayleave}>0.3&&$F{qtydayleave}<1)?0.5:$F{qtydayleave}:""*/]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+					<reportElement style="Style2" stretchType="RelativeToBandHeight" x="55" y="0" width="40" height="20" uuid="6d36737d-a9f7-416f-aa38-3581cc86b903">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<box leftPadding="2" rightPadding="2">
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{codshift}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+					<reportElement style="Style1" stretchType="RelativeToBandHeight" x="880" y="0" width="105" height="20" uuid="ac41c411-904a-4398-a51d-418bf750f072">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<box leftPadding="2" rightPadding="2">
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement>
+						<font fontName="Cordia New"/>
+					</textElement>
+					<textFieldExpression><![CDATA["P2".equals($F{codleave})?$F{remarkEditTime}!=null&&$F{remarkEditTime}.trim().length()>0?"ลาสมรส"+"  "+$F{remarkEditTime}:"ลาสมรส":
+"P3".equals($F{codleave})?$F{remarkEditTime}!=null&&$F{remarkEditTime}.trim().length()>0?"ลาอุปสมบท"+"  "+$F{remarkEditTime}:"ลาอุปสมบท":
+"P4".equals($F{codleave})?$F{remarkEditTime}!=null&&$F{remarkEditTime}.trim().length()>0?"ลาไปประกอบพิธีฮัจน์"+"  "+$F{remarkEditTime}:"ลาไปประกอบพิธีฮัจน์":
+"P5".equals($F{codleave})?$F{remarkEditTime}!=null&&$F{remarkEditTime}.trim().length()>0?"สมาชิกในครอบครัวถึงแก่กรรม"+"  "+$F{remarkEditTime}:"สมาชิกในครอบครัวถึงแก่กรรม":
+"S5".equals($F{codleave})?$F{remarkEditTime}!=null&&$F{remarkEditTime}.trim().length()>0?"ลาป่วย(เกิน 30 วัน)"+"  "+$F{remarkEditTime}:"ลาป่วย(เกิน 30 วัน)":
+"O1".equals($F{codleave})?$F{remarkEditTime}!=null&&$F{remarkEditTime}.trim().length()>0?"ลาหยุดโดยไม่ขอรับเงินเดือน"+"  "+$F{remarkEditTime}:"ลาหยุดโดยไม่ขอรับเงินเดือน":
+"O2".equals($F{codleave})?$F{remarkEditTime}!=null&&$F{remarkEditTime}.trim().length()>0?"ลากิจราชการทหาร"+"  "+$F{remarkEditTime}:"ลากิจราชการทหาร":
+"O3".equals($F{codleave})?$F{remarkEditTime}!=null&&$F{remarkEditTime}.trim().length()>0?""+"ลาเพื่อฝึกอบรมตามกฎหมาย"+$F{remarkEditTime}:"ลาเพื่อฝึกอบรมตามกฎหมาย":
+"S3".equals($F{codleave})?$F{remarkEditTime}!=null&&$F{remarkEditTime}.trim().length()>0?""+"อุบัติเหต/เจ็บป่วยจากการทำงาน"+$F{remarkEditTime}:"อุบัติเหต/เจ็บป่วยจากการทำงาน":
+"S2".equals($F{codleave})?$F{remarkEditTime}!=null&&$F{remarkEditTime}.trim().length()>0?""+"ลาทำหมัน"+$F{remarkEditTime}:"ลาทำหมัน":
+"ZZ".equals($F{codleave})?$F{remarkEditTime}!=null&&$F{remarkEditTime}.trim().length()>0?""+"ลาอื่นๆ (ห้ามใช้/หักเงิน)"+$F{remarkEditTime}:"ลาอื่นๆ (ห้ามใช้/หักเงิน)":
+"H".equals($F{remark})?$F{remarkEditTime}!=null&&$F{remarkEditTime}.trim().length()>0?"วันหยุด"+"  "+$F{remarkEditTime}:"วันหยุด":
+"T".equals($F{remark})?$F{remarkEditTime}!=null&&$F{remarkEditTime}.trim().length()>0?$F{desholdyt}+"  "+$F{remarkEditTime}:$F{desholdyt}:
+$F{remarkEditTime}!=null&&$F{remarkEditTime}.trim().length()>0?$F{remarkEditTime}:"  "
+
+
+
+/*"P2".equals($F{codleave})?"ลาสมรส":"P3".equals($F{codleave})?"ลาอุปสมบท":"P4".equals($F{codleave})?"ลาไปประกอบพิธีฮัจน์":"P5".equals($F{codleave})?"สมาชิกในครอบครัวถึงแก่กรรม":"S5".equals($F{codleave})?"ลาป่วย(เกิน 30 วัน)":"O1".equals($F{codleave})?"ลาหยุดโดยไม่ขอรับเงินเดือน":"O2".equals($F{codleave})?"ลากิจราชการทหาร":"H".equals($F{remark})?"วันหยุด":"T".equals($F{remark})?$F{desholdyt}:( !" ".equals($F{codleave}) )?$F{namleavcdt}:" "+$F{remarkEditTime}!=null&&$F{remarkEditTime}.trim().length()>0?"  "+$F{remarkEditTime}:"  "*/]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="87" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<staticText>
+				<reportElement x="0" y="0" width="980" height="20" uuid="e35718d5-9ef6-4dec-a292-74bd45aa96e2">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Cordia New" size="16"/>
+				</textElement>
+				<text><![CDATA[R01 : รายงานการมาปฏิบัติงาน]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="780" y="20" width="80" height="20" uuid="79a76aa7-6e57-4579-8065-819e7bb61edb">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[วันที่พิมพ์รายงาน : ]]></text>
+			</staticText>
+			<textField pattern="">
+				<reportElement x="860" y="20" width="120" height="20" uuid="b58ec8e3-025a-4957-85e5-4f6aa7c3cdcd"/>
+				<textElement>
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("dd/MM/yyyy HH:mm", new Locale("th", "TH")).format(new Date())]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="860" y="40" width="120" height="20" uuid="eb6ebd95-519b-45b6-80fd-98437de66ade">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{printBy}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="780" y="40" width="80" height="20" uuid="efbe5f6e-6fce-4e4c-aa70-ed9b12920e09">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[พิมพ์รายงานโดย :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="780" y="60" width="45" height="20" uuid="459aad22-8a5b-4229-9cc5-55e1ab40c672"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[ช่วงวันที่]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="885" y="60" width="20" height="20" uuid="2f8f8574-1451-4967-888a-e0354bbb7c52"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[ถึง]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="825" y="60" width="60" height="20" uuid="57b606e5-cc31-42fa-8dad-7464f96fd346"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{startDate}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="905" y="60" width="60" height="20" uuid="73d34642-9f8b-478f-a72d-25d8b18ff8df"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{endDate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="60" splitType="Stretch">
+			<staticText>
+				<reportElement x="297" y="0" width="60" height="20" uuid="6cd444bd-d17f-4e1c-8887-832c8c73c132"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<textElement>
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[หน่วยงาน]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="60" height="20" uuid="38b424de-5099-4370-8cb9-d3e71307b472"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<textElement>
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[รหัสพนักงาน]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="110" y="20" width="40" height="20" uuid="97d5876a-709a-4487-aafd-a694cb4d5f66"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[ชื่อ-สกุล]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="297" y="20" width="60" height="20" uuid="de1e1a85-0e0b-4880-aaf9-26e40bb34e23"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<textElement>
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[ตำแหน่ง]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="110" height="20" uuid="2f759ec6-5554-48a8-9a71-4595155f4fec"/>
+				<box leftPadding="2" rightPadding="2"/>
+				<textElement>
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[สถานะ(รายวัน/รายเดือน)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="297" y="40" width="60" height="20" uuid="df1ea8df-da76-470e-973e-2aea9f696fd1">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2"/>
+				<textElement>
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[วันเริ่มงาน]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="407" y="40" width="60" height="20" uuid="1ee35621-d1ba-4a48-a8da-633ebd9eeb78">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2"/>
+				<textElement textAlignment="Center">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[วันพ้นสภาพ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="1" y="0" width="296" height="20" uuid="01e1d8a1-1c75-44db-bb08-0c166cfdce8e"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{company}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="357" y="0" width="230" height="20" uuid="d2266fff-f276-44c7-992a-7e8633823ade"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{unitwork}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="60" y="20" width="50" height="20" uuid="fc6ad0d2-e25a-4d84-8a8b-eab78bd40b38"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codempid}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="150" y="20" width="147" height="20" uuid="40bf2c55-761a-467c-b8c0-c1d1454c2e50"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{namemp}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="357" y="20" width="323" height="20" uuid="24a106a3-cebd-493d-91bf-6006f77e219b">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nampost}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="110" y="40" width="187" height="20" uuid="6713a76d-cc03-4f24-b4b7-eb1931d212b3">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{typpayrollnamt}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="357" y="40" width="50" height="20" uuid="c567fa0a-63f0-4143-bbeb-0bd5ab25a0c2">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{startwork}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="true">
+				<reportElement stretchType="RelativeToBandHeight" x="467" y="40" width="50" height="20" uuid="c567fa0a-63f0-4143-bbeb-0bd5ab25a0c2"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dteeffex}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="60" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="85" height="20" uuid="90c958d1-48f9-4f00-a180-8c0fb015264a">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[สถิติการลา  : ลากิจ =       ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="20" width="55" height="40" uuid="ffa3a2e2-a8b6-4b68-aad6-5b7637e6d3c5">
+					<property name="com.jaspersoft.studio.unit.x" value="pixel"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[วันที่]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="55" y="20" width="40" height="40" uuid="0cf5b8bc-e53d-4c23-9dad-80958e9e45a6"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[รหัสกะ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="95" y="20" width="85" height="40" uuid="3e638126-da17-49ea-986f-f372879c4d4e">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[เวลาเข้า-ออก]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="180" y="20" width="50" height="40" backcolor="#F2211D" uuid="a8c7b5e0-f5d5-4238-b1a6-e7b97e1c453c"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[จำนวน ชม. รวม]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="230" y="20" width="50" height="40" uuid="39dad54c-9fef-40f4-b8c6-ab8772983d1b">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[จำนวน ชม. ปกติ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="280" y="20" width="50" height="40" uuid="6be4dfb0-56b1-4d80-9814-e450921f4bcd">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[จำนวนวัน]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="20" width="35" height="40" uuid="dde067d1-a970-4e15-a049-3ba5fb4b6d31"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[OT1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="365" y="20" width="35" height="40" uuid="99cb2490-83e0-4a72-a816-ae0881cbf8cf"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[OT1.5]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="20" width="35" height="40" uuid="6e1818f3-2926-4079-a708-ff804208a061"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[OT2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="435" y="20" width="35" height="40" uuid="d0c88b8b-6586-4eb6-afcb-58ec3c3d20fc"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[OT3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="470" y="20" width="40" height="40" uuid="c3d4d1d0-8db9-4ba0-85a2-6628468f4ec4"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[สาย]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="510" y="20" width="40" height="40" uuid="3b217dc5-10bc-43d1-9bed-35e4d572d1df">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[ขาดงาน]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="550" y="20" width="40" height="40" uuid="4b218844-d282-403b-86a0-b9699c39a9df">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[ลากิจ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="590" y="20" width="45" height="40" uuid="7277dbe5-6739-467e-a3ed-7d88ac3122af">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[ลาพักร้อน]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="635" y="20" width="40" height="40" uuid="7d03183b-be17-4ffe-9fa4-5d90fc3a0e39">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[ลาป่วย]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="675" y="20" width="40" height="40" uuid="605498f2-7d2b-4e6c-8eec-fcb91e03c92d">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[ลาคลอด]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="715" y="20" width="40" height="40" uuid="47122b97-423c-47c3-bf0a-d2078b17ce8a"/>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[ลาอื่นๆ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="755" y="20" width="125" height="40" uuid="44ba636d-d3a7-41f2-99e8-c66e99d19778">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[ปฎิบัติงานภายนอก]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="880" y="20" width="105" height="40" uuid="1a66e155-055a-44df-9a24-438f8a262f32">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<box leftPadding="2" rightPadding="2">
+					<topPen lineWidth="0.5" lineStyle="Solid"/>
+					<leftPen lineWidth="0.5" lineStyle="Solid"/>
+					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
+					<rightPen lineWidth="0.5" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[หมายเหตุ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="115" y="0" width="60" height="20" uuid="061d09cd-a2f1-4d97-8545-5f883060207c">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[ลาพักผ่อน = ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="0" width="48" height="20" uuid="9226ea70-0008-4a15-944e-4dcfe5782738">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[ลาป่วย = ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="293" y="0" width="50" height="20" uuid="dd03d8fc-2476-471a-8dae-c0dde78f3be7">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[ลาคลอด = ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="378" y="0" width="44" height="20" uuid="9a5a1363-0ffc-486a-840a-5c2756c09906">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[ลาบวช = ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="457" y="0" width="48" height="20" uuid="23d5a78c-c3cb-4d2a-a9b6-e05d9a77ebca">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<text><![CDATA[ลาสมรส = ]]></text>
+			</staticText>
+			<textField evaluationTime="Group" evaluationGroup="EMP">
+				<reportElement x="85" y="0" width="30" height="20" uuid="7c1ada9e-ac47-458a-ab27-0df08e2ffaf5">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{p1Qty}>0?new DecimalFormat("0.#").format($F{p1Use}.doubleValue())+"/"+new DecimalFormat("0.#").format($F{p1Qty}.doubleValue()):new DecimalFormat("0.#").format($F{p6Use}.doubleValue())+"/"+new DecimalFormat("0.#").format($F{p6Qty}.doubleValue())]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Group" evaluationGroup="EMP">
+				<reportElement x="175" y="0" width="35" height="20" uuid="fe20e084-c18f-4c12-a979-d07bd8378f4b">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new DecimalFormat("0.##").format($F{v1Use}.doubleValue())+"/"+new DecimalFormat("0.##").format($F{v1Qty}.doubleValue())]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Group" evaluationGroup="EMP">
+				<reportElement x="258" y="0" width="35" height="20" uuid="5e765782-817a-4b85-a1b4-efc329e7a2c1">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new DecimalFormat("0.#").format($F{s1Use}.doubleValue())+"/"+new DecimalFormat("0.#").format($F{s1Qty}.doubleValue())]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Group" evaluationGroup="EMP">
+				<reportElement x="343" y="0" width="35" height="20" uuid="671a0aa3-460d-446a-96ce-a24a56d48092">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new DecimalFormat("0.#").format($F{s4Use}.doubleValue())+"/"+new DecimalFormat("0.#").format($F{s4Qty}.doubleValue())]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Group" evaluationGroup="EMP">
+				<reportElement x="422" y="0" width="35" height="20" uuid="d3c4ba4e-1045-468b-9646-074f9f1ca178"/>
+				<textElement textAlignment="Center">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new DecimalFormat("0.#").format($F{p3Use}.doubleValue())+"/"+new DecimalFormat("0.#").format($F{p3Qty}.doubleValue())]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Group" evaluationGroup="EMP">
+				<reportElement x="505" y="0" width="35" height="20" uuid="bcbc3ad8-7b15-43a6-a15d-8705ba77df8c">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Cordia New" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new DecimalFormat("0.#").format($F{p2Use}.doubleValue())+"/"+new DecimalFormat("0.#").format($F{p2Qty}.doubleValue())]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<pageFooter>
+		<band height="86" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<frame>
+				<reportElement x="920" y="0" width="50" height="20" uuid="14c71fad-3b72-431f-8ea6-c80396771133">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textField>
+					<reportElement x="0" y="0" width="25" height="20" uuid="764673df-fa9e-4a15-afb1-028ed81eb067">
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA["หน้า"]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="25" y="0" width="10" height="20" uuid="300edbc0-bd2f-4021-8607-e6713c69c0ec">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="35" y="0" width="5" height="20" uuid="5db31bdf-5c58-4ca2-b44a-d6b67e2707b0">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA["/"]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Report">
+					<reportElement x="40" y="0" width="10" height="20" uuid="2e4abb49-cf7b-4aa9-8173-fd4361f45689">
+						<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+					</reportElement>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Cordia New" size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+</jasperReport>
