@@ -186,9 +186,9 @@ public class MenuDaoImpl implements MenuDao {
 				sql_app.append("   c.addp,");
 				sql_app.append("   c.approve_flg,");
 				sql_app.append("   c.head_flg");
-				sql_app.append("  from HRIS_MP_MENU a");
-				sql_app.append("  inner join HRIS_MENU b  on a.MENU_ID =b.MENU_ID and b.STATUS =1");
-				sql_app.append("  inner join HRIS_PERMISS_ITEM c on a.PMI_ID =c.PMI_ID");
+				sql_app.append("  from hris.HRIS_MP_MENU a");
+				sql_app.append("  inner join hris.HRIS_MENU b  on a.MENU_ID =b.MENU_ID and b.STATUS =1");
+				sql_app.append("  inner join hris.HRIS_PERMISS_ITEM c on a.PMI_ID =c.PMI_ID");
 				sql_app.append("   where a.GU_ID ='"+result.gu_id+"'  order by b.app_order ");
 
 				List<MainMenuObj> main_menu = new ArrayList<MainMenuObj>();

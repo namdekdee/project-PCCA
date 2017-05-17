@@ -3,30 +3,18 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<style>
-#btnCaCancel.btn-primary {
-	background-color: #e62e00;
-	border-color: transparent;
-}
 
-#btnCaReqApprove.btn-primary {
-	background-color: #009900;
-	border-color: transparent;
-}
-
-#btnCaReqApprove:hover {
-	background-color: #008000;
-}
-
-#btnCaCancel:hover {
-	background-color: #cc2900;
-}
-</style>
 <script>
 	$('document').ready(function() {
 		initdropdown();
+
+		$('#myModal').modal('show');
+
 	});
 
+	function popUpReq() {
+		$('#modalReq').modal('show');
+	}
 	function initdropdown() {
 		SetDropDownCompany('ddlCaList');
 	}
@@ -65,9 +53,9 @@
 
 	function AddCaList() {
 
-		alert($(".form-group").length)
+		//alert($(".form-group").length)
 
-		var length = $("#fromCompanyDiv").length,
+		var length = $("#formCompanyDiv").length,
 		//create new id
 		newId = "AmountCaDiv-" + length,
 		//clone first element with new id
@@ -77,11 +65,11 @@
 		//$("#addFromCaCompany").clone().appendTo("#addFromCaCompany");
 
 		//get length of selections
-		length = $("#fromCompanyDiv").length,
+		length = $("#formCompanyDiv").length,
 		//create new id
-		newId = "fromCompanyDiv-" + length,
+		newId = "formCompanyDiv-" + length,
 		//clone first element with new id
-		clone = $("#fromCompanyDiv").clone().attr("id", newId);
+		clone = $("#formCompanyDiv").clone().attr("id", newId);
 		clone.children('.form-control').attr('id', 'ddlCompany-' + length++);
 		//append clone on the end
 		$("#addCompanyDiv").append(clone);
@@ -92,22 +80,26 @@
 	<div class="row"
 		style="background-color: #DCDCDC; padding-top: .5em; display: flex; flex-flow: row nowrap; height: 2.5em;">
 
-		<div class="col-md-4 col-xs-4 text-left">
-			<label id="lblDlgName">(3)</label>
+		<div class="col-md-4 col-xs-2 text-left">
+			<span class="badge">5</span>
 		</div>
-		<div class="col-md-4 col-xs-4 text-center">
-			<label id="lblDlgName">ขอเบิกเงินทดรอง</label>
+		<div class="col-md-4 col-xs-8 text-center">
+			<label id="lblDlgName" class="PageTitle">ขอเบิกเงินทดรอง</label>
 		</div>
-		<div class="col-md-4 col-xs-4 text-right">
+		<div class="col-md-4 col-xs-2 text-right">
 			<label id="lblDlgName" class="glyphicon glyphicon-remove-circle"></label>
 		</div>
 	</div>
 
-	<div class="row" style="background-color: #C0C0C0;">
-		<div class="col-xs-12 col-sm-7 col-md-7 col-md-offset-1">
+	<div class="row" style="background-color: rgba(81, 239, 0, 0.17);">
+		<div class="col-xs-12 col-sm-7 col-md-7 col-md-offset-1"
+			style="padding-top: 5px;">
 			<label id="lblCaNo">เลขที่รายการ 555555</label>
 		</div>
-		<div class="col-xs-6 col-md-4" style="text-align: justify;">PTG</div>
+		<div class="col-xs-6 col-md-4"
+			style="text-align: justify; padding-top: 5px;">
+			<label id="lblCaNo">PTG</label>
+		</div>
 		<br>
 		<div class="col-xs-12 col-sm-7 col-md-7 col-md-offset-1">
 			<label id="lblEmpId">12345</label>
@@ -130,7 +122,7 @@
 		<div class="box-body">
 			<div class="row">
 				<div class="form-group">
-					<label for="ddlCaList" class="col-sm-2 control-label" required>
+					<label for="ddlCaList" class="col-sm-3 control-label" required>
 						<%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
 						รายการที่ขอเบิก <span style="color: red;">*</span>
 					</label>
@@ -144,7 +136,7 @@
 			<div class="row">
 				<div class="form-group">
 					<label for="inputCaObj" id="lblCaObj"
-						class="col-sm-2 control-label"> <!-- input id="chkUser" type="checkbox" class="minimal" />&nbsp;-->
+						class="col-sm-3 control-label"> <!-- input id="chkUser" type="checkbox" class="minimal" />&nbsp;-->
 						<%-- 										<spring:message code="member.history.criteria.user" /> --%>
 						วัตถุประสงค์
 					</label>
@@ -158,7 +150,7 @@
 
 			<div class="row">
 				<div class="form-group">
-					<label class="col-sm-2 control-label" id="lblStartDate" required>
+					<label class="col-sm-3 control-label" id="lblStartDate" required>
 						<%-- 					<spring:message code="member.worktime.criteria.date" /> --%>
 						ตั้งแต่วันที่ <span style="color: red;">*</span>
 					</label>
@@ -182,7 +174,7 @@
 			</div>
 			<div class="row">
 				<div class="form-group">
-					<label for="ddlDateGetCash" class="col-sm-2 control-label" required>
+					<label for="ddlDateGetCash" class="col-sm-3 control-label" required>
 						<%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
 						วันที่ขอรับเงิน <span style="color: red;">*</span>
 					</label>
@@ -202,8 +194,8 @@
 				</div>
 			</div>
 			<div class="row" id="addCompanyDiv">
-				<div class="form-group" id="fromCompanyDiv">
-					<label id="lblCaCompany" class="col-sm-2 control-label" required>
+				<div class="form-group" id="formCompanyDiv">
+					<label id="lblCaCompany" class="col-sm-3 control-label" required>
 						<%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
 						เบิกจากบริษัท
 					</label>
@@ -218,27 +210,29 @@
 					</div>
 				</div>
 			</div>
+
 			<div class="row" id="addAmountCaDiv">
 				<div class="form-group" id="AmountCaDiv">
-					<label class="col-sm-2 control-label" id="lblCaAmount" required>
-						<%-- 					<spring:message code="member.worktime.criteria.date" /> --%>
-						จำนวนเงิน <span style="color: red;">*</span>
-					</label> <span class="col-sm-2"> <input type="text"
-						id="inputCaAmount" class="form-control" placeholder="ระบุ...">
-					</span>
+					<label id="lblCaAmount" class="col-sm-3 control-label">
+						จำนวนเงิน </label>
+					<div class="col-sm-2">
+						<input type="text" id="inputCaAmount" class="form-control"
+							placeholder="ระบุ...">
+					</div>
+
 				</div>
 			</div>
 
 			<div class="row">
 				<div class="col-sm-3 col-sm-offset-5 control-label">
 					<button type="button" style="width: 150px;"
-						class="btn btn-primary pull-right" id="btnAddCaList"
+						class="btn btn-primary center-block" id="btnAddCaList"
 						onclick="AddCaList();">เพิ่มรายการ</button>
 				</div>
 			</div>
 
 			<div class="row">
-				<div class="col-sm-2 col-sm-offset-2">
+				<div class="col-sm-2 col-sm-offset-3">
 					<div class="checkbox">
 						<label> <input id="inputAcceptCond" type="checkbox"
 							class="minimal" style="position: absolute; opacity: 0;">
@@ -251,14 +245,16 @@
 
 			<div class="row">
 				<div class="form-group">
-					<div class="col-sm-2 col-sm-offset-2" style="display: flex;">
-						<button type="button" style="width: 150px;"
-							class="btn btn-primary pull-right" id="btnCaCancel" onclick="">ยกเลิก</button>
+					<div class="col-sm-2 col-sm-offset-3" style="display: flex;">
+						<button type="button" style="width: 80%;"
+							class="btn btn-primary center-block" id="btnCaCancel"
+							onclick="location.href='ca_home';">ยกเลิก</button>
 					</div>
 					<div>
 						<div class="col-sm-2" style="display: flex;">
-							<button type="button" style="width: 150px;"
-								class="btn btn-primary" id="btnCaReqApprove" onclick="">ขออนุมัติ</button>
+							<button type="button" style="width: 80%;"
+								class="btn btn-primary center-block" id="btnCaReqApprove"
+								onclick="popUpReq">ขออนุมัติ</button>
 						</div>
 					</div>
 				</div>
@@ -267,6 +263,72 @@
 	</form>
 </div>
 <!-- /.box-body -->
+
+<!-- Modal Approver-->
+<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal-dialog modal-sm">
+
+		<!-- Modal content-->
+		<div class="modal-content" style="background-color: #ffff33;">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">รายการหนี้คงค้าง</h4>
+			</div>
+			<div class="modal-body">
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<tbody>
+							<tr class="active">
+								<td class="col-sm-4">เลขที่รายการ 525523<br>งานภายนอก
+									เชียงใหม่
+								</td>
+								<td class="col-sm-4">1,000 บาท</td>
+							</tr>
+							<tr class="success">
+								<th class="col-sm-4">เลขที่รายการ 525523<br>งานภายนอก
+									เชียงใหม่
+								</th>
+
+								<td class="col-sm-4">1,000 บาท</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary center-block"
+					data-dismiss="modal">รับทราบ</button>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<!-- Modal Request-->
+<div class="modal fade" id="modalRequest" role="dialog">
+	<div class="modal-dialog modal-sm">
+
+		<!-- Modal content-->
+		<div class="modal-content" style="background-color: #ffff33;">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">รายการหนี้คงค้าง</h4>
+			</div>
+			<div class="modal-body">
+				<label>ถ้าอนุมัติภายในวันที่ xxx จะได้รับเงินวันที่ xxx
+					โดยข้อมูลวันที่ มาจากตาราง Due date และถ้าเลือก รายการที่ขอเบิกเป็น
+					ค่าใช้จ่ายเพื่อบริษัท แสดงข้อความเพิ่ม
+					“กรณีเบิกค่าใช้จ่ายในการเดินทาง ต้องทำใบปฏิบัติงานภายนอกภายใน15วัน
+				</label>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary center-block"
+					data-dismiss="modal">รับทราบ</button>
+			</div>
+		</div>
+
+	</div>
+</div>
 
 
 

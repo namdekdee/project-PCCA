@@ -111,7 +111,7 @@ to {
 			data["codempid"] = $("#txtUsername").val();
 			data["password"] = $("#txtPassword").val();
            jQuery.ajax({
-               url: 'loginCA',
+               url: 'login',
                type: "Post",
                contentType: "application/json",
                data: JSON.stringify(data),

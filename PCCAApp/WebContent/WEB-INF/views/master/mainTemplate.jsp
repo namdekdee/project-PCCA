@@ -73,6 +73,8 @@
 	href="<%=request.getContextPath()%>/resources/dist/css/skins/_all-skins.min.css">
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/Style/CustomStyle.css">
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/resources/Style/PccaStyle.css">
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -114,94 +116,92 @@ to {
 
 <script>
 	$(document).ready(
-			
-			
-			function() {
-				InitMenuMain();
 
-			});
-	
-// 	window.onbeforeunload = function (event) {
-// 	    var message = 'Important: Please click on \'Save\' button to leave this page.';
-// 	    if (typeof event == 'undefined') {
-// 	        event = window.event;
-// 	    }
-// 	    if (event) {
-// 	        event.returnValue = message;
-// 	    }
-//   	    return message;
-// 	};
+	function() {
+		InitMenuMain();
 
+	});
 
-function InitMenuMain(){
-	var pathname = window.location.pathname;
-	pathname = pathname.substring(9, pathname.length);
-	var data = {}
-	data["strPage"] = pathname;
-	jQuery.ajax({
-		url : 'getmenu',
-		type : "Post",
-		contentType : "application/json",
-		data : JSON.stringify(data),
-		dataType : 'json',
-		success : function(obj) {
-			if (obj.success == "1") {
-				$('#divMenu').html(obj.menu);
-				$('#divSiteMap').html(obj.sitemap);
-				$('#lblProfile').html(obj.profile);
-				$('#lblSignOut').html(obj.signout);
-				$('#lblUser').html(obj.name);
-				$('#lblUserRight').html(obj.nameright);
-				if(obj.nameposition != null && obj.nameposition != '' && obj.nameposition !='null'){
-					var str = obj.nameposition.split('-');
-					var name = str[0];
-					var position = str[1];
-				//$('#lblNamePosition').html(obj.nameposition); 
-				$('#lblNameMain').html(name);
-				$('#lblPositionMain').html(position);
-				}else{
-					var v_null ='';
-					//$('#lblNamePosition').html(v_null);
-					$('#lblNameMain').html(v_null);
-					$('#lblPositionMain').html(v_null);
+	// 	window.onbeforeunload = function (event) {
+	// 	    var message = 'Important: Please click on \'Save\' button to leave this page.';
+	// 	    if (typeof event == 'undefined') {
+	// 	        event = window.event;
+	// 	    }
+	// 	    if (event) {
+	// 	        event.returnValue = message;
+	// 	    }
+	//   	    return message;
+	// 	};
+
+	function InitMenuMain() {
+		var pathname = window.location.pathname;
+		pathname = pathname.substring(9, pathname.length);
+		var data = {}
+		data["strPage"] = pathname;
+		jQuery.ajax({
+			url : 'getmenu',
+			type : "Post",
+			contentType : "application/json",
+			data : JSON.stringify(data),
+			dataType : 'json',
+			success : function(obj) {
+				if (obj.success == "1") {
+					$('#divMenu').html(obj.menu);
+					$('#divSiteMap').html(obj.sitemap);
+					$('#lblProfile').html(obj.profile);
+					$('#lblSignOut').html(obj.signout);
+					$('#lblUser').html(obj.name);
+					$('#lblUserRight').html(obj.nameright);
+					if (obj.nameposition != null && obj.nameposition != ''
+							&& obj.nameposition != 'null') {
+						var str = obj.nameposition.split('-');
+						var name = str[0];
+						var position = str[1];
+						//$('#lblNamePosition').html(obj.nameposition); 
+						$('#lblNameMain').html(name);
+						$('#lblPositionMain').html(position);
+					} else {
+						var v_null = '';
+						//$('#lblNamePosition').html(v_null);
+						$('#lblNameMain').html(v_null);
+						$('#lblPositionMain').html(v_null);
+					}
+					$('#lblEmpIDMain').html(obj.codempid);
+					document.title = obj.title;
+					var lang = obj.lang;
+					var image = document.getElementById('imgLang');
+					image.src = "resources/Images/lang/flags_iso/16/" + lang
+							+ ".png";
+					var member = obj.memberno;
+					var image_left = document.getElementById('imgUserLeft');
+					image_left.src = "resources/Images/Member/" + member
+							+ ".jpg";
+
+					//Defalut Datepicker language
+					$.fn.datepicker.defaults.language = lang;
+					$.fn.datepicker.defaults.format = "dd/mm/yyyy";
+					$('#txtLangMain').val(lang);
+					$('[data-provide="datepicker"]').datepicker({
+						autoclose : true
+					});
+
+				} else {
+					//alert("error login");
+					window.location = "welcome";
 				}
-				$('#lblEmpIDMain').html(obj.codempid);
-				document.title = obj.title;
-				var lang = obj.lang;
-				var image = document.getElementById('imgLang');
-				image.src = "resources/Images/lang/flags_iso/16/"
-						+ lang + ".png";
-				var member = obj.memberno;
-				var image_left = document
-						.getElementById('imgUserLeft');
-				image_left.src = "resources/Images/Member/"
-						+ member + ".jpg";
-				
-				//Defalut Datepicker language
-				$.fn.datepicker.defaults.language = lang;
-				$.fn.datepicker.defaults.format = "dd/mm/yyyy";
-				$('#txtLangMain').val(lang);
-			    $('[data-provide="datepicker"]').datepicker({
-					autoclose : true
-				});
+			},
+			error : function() {
 
-			} else {
 				//alert("error login");
 				window.location = "welcome";
+
 			}
-		},
-		error : function() {
+		});
 
-			//alert("error login");
-			window.location = "welcome";
-
-		}
-	});
-	
-}
-function saveFormData() {
-    console.log('saved');
-}
+	}
+	function saveFormData() {
+		console.log('saved');
+	}
 
 	function ChangeLang(lang) {
 		var pathname = window.location.pathname;
@@ -254,7 +254,7 @@ function saveFormData() {
 						$("p:lang(us)").css("display", "none");
 					}
 				} else {
-					var msg='unsuccess';
+					var msg = 'unsuccess';
 					ShowErrorCustomMessage(msg);
 				}
 			},
@@ -345,11 +345,11 @@ function saveFormData() {
 		waitingDialog.hide();
 	}
 	function ShowErrorTran() {
-		 $("#divTran").show();
-         $("#divTran").fadeTo(15000, 500).slideUp(500, function () {
-             $("#divTran").hide();
-         });
-         //window.scrollTo(0, 0);
+		$("#divTran").show();
+		$("#divTran").fadeTo(15000, 500).slideUp(500, function() {
+			$("#divTran").hide();
+		});
+		//window.scrollTo(0, 0);
 	}
 	function ShowErrorCustomMessage(ex) {
 		$("#spnError").text(ex);
@@ -357,105 +357,97 @@ function saveFormData() {
 		//window.scrollTo(0, 0);
 	}
 	function ShowErrorConnectMessage() {
-    	var res ='0007 : ไม่สามารถเชื่อต่อ service ได้';
-    	$("#spnError").text(res);
+		var res = '0007 : ไม่สามารถเชื่อต่อ service ได้';
+		$("#spnError").text(res);
 		$("#dlgErrorMain").modal();
 	}
-	function GetLangMain()
-	{
+	function GetLangMain() {
 		return $('#txtLangMain').val();
 	}
-	function ValidateSpecialChar(x){
-		 var re = /"|'|--|[\/*]{2}/g;
-			var str = x;
-		    var result = re.test(str);
-		 return result;
-		
+	function ValidateSpecialChar(x) {
+		var re = /"|'|--|[\/*]{2}/g;
+		var str = x;
+		var result = re.test(str);
+		return result;
+
 	}
-	function InitPluginMain()
-	{
-		 $(".timepicker").timepicker({
-				showInputs : false,
-				minuteStep: 1,
-		        showMeridian: false,
-		        defaultTime: false
-			});
-		 
-		 $('[data-provide="datepicker"]').datepicker({
-				autoclose : true
-			});
+	function InitPluginMain() {
+		$(".timepicker").timepicker({
+			showInputs : false,
+			minuteStep : 1,
+			showMeridian : false,
+			defaultTime : false
+		});
+
+		$('[data-provide="datepicker"]').datepicker({
+			autoclose : true
+		});
 		//Initialize Select2 Elements
-			$(".select2").select2();
+		$(".select2").select2();
 
-			//Datemask dd/mm/yyyy
-			$("#datemask").inputmask("dd/mm/yyyy", {
-				"placeholder" : "dd/mm/yyyy"
-			});
-			//Datemask2 mm/dd/yyyy
-			$("#datemask2").inputmask("mm/dd/yyyy", {
-				"placeholder" : "mm/dd/yyyy"
-			});
-			//Money Euro
-			$("[data-mask]").inputmask();
+		//Datemask dd/mm/yyyy
+		$("#datemask").inputmask("dd/mm/yyyy", {
+			"placeholder" : "dd/mm/yyyy"
+		});
+		//Datemask2 mm/dd/yyyy
+		$("#datemask2").inputmask("mm/dd/yyyy", {
+			"placeholder" : "mm/dd/yyyy"
+		});
+		//Money Euro
+		$("[data-mask]").inputmask();
 
-			//Date range picker
-			$('#reservation').daterangepicker();
-			//Date range picker with time picker
-			$('#reservationtime').daterangepicker({
-				timePicker : true,
-				timePickerIncrement : 30,
-				format : 'MM/DD/YYYY h:mm A'
-			});
-			//Date range as a button
-			$('#daterange-btn').daterangepicker(
-					{
-						ranges : {
-							'Today' : [ moment(), moment() ],
-							'Yesterday' : [ moment().subtract(1, 'days'),
-									moment().subtract(1, 'days') ],
-							'Last 7 Days' : [ moment().subtract(6, 'days'),
-									moment() ],
-							'Last 30 Days' : [ moment().subtract(29, 'days'),
-									moment() ],
-							'This Month' : [ moment().startOf('month'),
-									moment().endOf('month') ],
-							'Last Month' : [
-									moment().subtract(1, 'month').startOf(
-											'month'),
-									moment().subtract(1, 'month')
-											.endOf('month') ]
-						},
-						startDate : moment().subtract(29, 'days'),
-						endDate : moment()
+		//Date range picker
+		$('#reservation').daterangepicker();
+		//Date range picker with time picker
+		$('#reservationtime').daterangepicker({
+			timePicker : true,
+			timePickerIncrement : 30,
+			format : 'MM/DD/YYYY h:mm A'
+		});
+		//Date range as a button
+		$('#daterange-btn').daterangepicker(
+				{
+					ranges : {
+						'Today' : [ moment(), moment() ],
+						'Yesterday' : [ moment().subtract(1, 'days'),
+								moment().subtract(1, 'days') ],
+						'Last 7 Days' : [ moment().subtract(6, 'days'),
+								moment() ],
+						'Last 30 Days' : [ moment().subtract(29, 'days'),
+								moment() ],
+						'This Month' : [ moment().startOf('month'),
+								moment().endOf('month') ],
+						'Last Month' : [
+								moment().subtract(1, 'month').startOf('month'),
+								moment().subtract(1, 'month').endOf('month') ]
 					},
-					function(start, end) {
-						$('#daterange-btn span').html(
-								start.format('MMMM D, YYYY') + ' - '
-										+ end.format('MMMM D, YYYY'));
-					});
+					startDate : moment().subtract(29, 'days'),
+					endDate : moment()
+				},
+				function(start, end) {
+					$('#daterange-btn span').html(
+							start.format('MMMM D, YYYY') + ' - '
+									+ end.format('MMMM D, YYYY'));
+				});
 
-			//Date picker
-			$('#datepicker').datepicker({
-				autoclose : true
-			});
-			
-			//iCheck for checkbox and radio inputs
-			$('input[type="checkbox"].minimal2')
-					.iCheck({
-						checkboxClass : 'icheckbox_minimal-blue',
-						//checkboxClass : 'icheckbox_flat-blue',
-						radioClass : 'iradio_minimal-blue'
-					});
-			
+		//Date picker
+		$('#datepicker').datepicker({
+			autoclose : true
+		});
 
-			//Colorpicker
-			$(".my-colorpicker1").colorpicker();
-			//color picker with addon
-			$(".my-colorpicker2").colorpicker();
+		//iCheck for checkbox and radio inputs
+		$('input[type="checkbox"].minimal2').iCheck({
+			checkboxClass : 'icheckbox_minimal-blue',
+			//checkboxClass : 'icheckbox_flat-blue',
+			radioClass : 'iradio_minimal-blue'
+		});
 
-		
+		//Colorpicker
+		$(".my-colorpicker1").colorpicker();
+		//color picker with addon
+		$(".my-colorpicker2").colorpicker();
+
 	}
-	
 </script>
 <style type="text/css">
 html, body {
@@ -808,9 +800,9 @@ html, body {
 
 			//Date picker
 			$('#datepicker').datepicker({
-				//autoclose : true
+			//autoclose : true
 			});
-			
+
 			//iCheck for checkbox and radio inputs
 			$('input[type="checkbox"].minimal, input[type="radio"].minimal')
 					.iCheck({
@@ -841,9 +833,9 @@ html, body {
 			//Timepicker
 			$(".timepicker").timepicker({
 				showInputs : false,
-				minuteStep: 1,
-                showMeridian: false,
-                defaultTime: false
+				minuteStep : 1,
+				showMeridian : false,
+				defaultTime : false
 			});
 		});
 	</script>

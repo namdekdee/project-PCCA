@@ -8,18 +8,18 @@
 	<div class="row"
 		style="background-color: #DCDCDC; padding-top: .5em; display: flex; flex-flow: row nowrap; height: 2.5em;">
 
-		<div class="col-md-4 col-xs-4 text-left">
-			<label id="lblDlgName">(3)</label>
+		<div class="col-md-4 col-xs-2 text-left">
+			<span class="badge">5</span>
 		</div>
-		<div class="col-md-4 col-xs-4 text-center">
-			<label id="lblDlgName">สรุปค่าใช้จ่าย</label>
+		<div class="col-md-4 col-xs-8 text-center">
+			<label id="lblDlgName" class="PageTitle">สรุปค่าใช้จ่าย</label>
 		</div>
-		<div class="col-md-4 col-xs-4 text-right">
+		<div class="col-md-4 col-xs-2 text-right">
 			<label id="lblDlgName" class="glyphicon glyphicon-remove-circle"></label>
 		</div>
 	</div>
 
-	<div class="row" style="background-color: #C0C0C0;">
+	<div class="row" style="background-color: rgba(81, 239, 0, 0.17);">
 		<div class="col-xs-12 col-sm-7 col-md-7 col-md-offset-1">
 			<label id="lblCaNo">เลขที่รายการ 555555</label>
 		</div>
@@ -46,7 +46,7 @@
 		<div class="box-body">
 			<div class="row" id="addCompanyDiv">
 				<div class="form-group" id="fromCompanyDiv">
-					<label id="lblCaCompany" class="col-sm-2 control-label" required>
+					<label id="lblCaCompany" class="col-sm-3 control-label" required>
 						<spring:message code="member.worktime.criteria.company" />
 						เบิกจากบริษัท
 					</label>
@@ -63,7 +63,7 @@
 
 			<div class="row">
 				<div class="form-group " id="haveForm">
-					<div class="col-sm-6 col-sm-offset-2">
+					<div class="col-sm-6 col-sm-offset-3">
 						<input id="inputAcceptCond" type="checkbox" class="minimal"
 							style="position: absolute; opacity: 0;"> <label>มีใบปฏิบัติงาน</label>
 						<input type="text" id="inputCaAmount" class="form-control"
@@ -74,7 +74,7 @@
 
 			<div class="row">
 				<div class="form-group">
-					<label class="col-sm-2 control-label" id="lblStartDate" required>
+					<label class="col-sm-3 control-label" id="lblStartDate" required>
 						<spring:message code="member.worktime.criteria.date" />
 						ตั้งแต่วันที่ <span style="color: red;">*</span>
 					</label>
@@ -99,7 +99,7 @@
 
 			<div class="row">
 				<hr class="col-xs-12 col-lg-12" style="background-color: black;">
-				<label class="col-sm-2 col-sm-offset-2">1 มีค 60</label>
+				<label class="col-sm-2 col-sm-offset-3">1 มีค 60</label>
 
 				<div class="col-sm-2 text-center">
 					<label>จำนวนเงิน</label>
@@ -109,7 +109,7 @@
 						placeholder="0.00" readonly>
 				</div>
 				<div class="col-sm-2">
-					<button type="button" class="btn custom-button pull-right"
+					<button type="button" class="btn custom-button center-block"
 						id="btnSaveWorkOut" onclick="SaveWorkOut('S');">&nbsp;
 						บันทึก</button>
 				</div>
@@ -117,7 +117,7 @@
 
 			<div class="row">
 				<hr class="col-xs-12 col-lg-12" style="background-color: black;">
-				<label class="col-sm-2 col-sm-offset-2">1 มีค 60</label>
+				<label class="col-sm-2 col-sm-offset-3">1 มีค 60</label>
 
 				<div class="col-sm-2 text-center">
 					<label>จำนวนเงิน</label>
@@ -127,7 +127,7 @@
 						placeholder="0.00" readonly>
 				</div>
 				<div class="col-sm-2">
-					<button type="button" class="btn custom-button pull-right"
+					<button type="button" class="btn custom-button center-block"
 						id="btnSaveWorkOut" onclick="SaveWorkOut('S');">&nbsp;
 						บันทึก</button>
 				</div>
@@ -144,21 +144,21 @@
 
 
 
-	<div class="row" style="background-color: #C0C0C0;">
-		<div class="col-xs-12 col-sm-7 col-md-7 col-md-offset-1">
+	<div class="row" style="background-color: rgba(0, 158, 166, 0.19);">
+		<div class="col-xs-12 col-sm-7 col-md-6 col-md-offset-2">
 			<label id="lblCaNo">รวม 3วัน</label>
 		</div>
 		<div class="col-xs-6 col-md-4" style="text-align: justify;">0.00
 			บาท</div>
 		<br>
-		<div class="col-xs-12 col-sm-7 col-md-7 col-md-offset-1">
+		<div class="col-xs-12 col-sm-7 col-md-6 col-md-offset-2">
 			<label id="lblEmpId">เบิกไปแล้ว</label>
 		</div>
 		<div class="col-xs-6 col-md-4">
 			<label id="lblEmpName">8,000.00 บาท</label>
 		</div>
 		<br>
-		<div class="col-xs-12 col-sm-7 col-md-7 col-md-offset-1"
+		<div class="col-xs-12 col-sm-7 col-md-6 col-md-offset-2"
 			style="background: red;">
 			<label id="lblEmpPos">คืนเงินเต็มจำนวน</label>
 		</div>
@@ -171,20 +171,20 @@
 
 	<div class="row">
 		<div class="form-group">
-			<div class="col-sm-2 col-sm-offset-2" style="display: flex;">
+			<div class="col-sm-2 col-sm-offset-3" style="display: flex;">
 				<button type="button" style="width: 150px;"
-					class="btn btn-warning pull-right" id="btnTempSave" onclick="">บันทึกชั่วคราว</button>
+					class="btn btn-warning center-block" id="btnTempSave" onclick="">บันทึกชั่วคราว</button>
 			</div>
 			<div>
 				<div class="col-sm-2" style="display: flex;">
-					<button type="button" style="width: 150px;" class="btn btn-success"
+					<button type="button" style="width: 150px;" class="btn btn-success center-block" 
 						id="btnReqApprove" onclick="">ส่งอนุมัติ</button>
 				</div>
 			</div>
 			<div>
 				<div class="col-sm-2 " style="display: flex;">
 					<button type="button" style="width: 150px;"
-						class="btn btn-primary pull-right" id="btnUpload" onclick="">Upload</button>
+						class="btn btn-primary center-block" id="btnUpload" onclick="">Upload</button>
 				</div>
 			</div>
 		</div>
@@ -192,13 +192,13 @@
 	<br>
 	<div class="row">
 		<div class="form-group">
-			<div class="col-sm-2 col-sm-offset-2" style="display: flex;">
-				<button type="button" style="width: 150px;" class="btn btn-primary"
+			<div class="col-sm-2 col-sm-offset-3" style="display: flex;">
+				<button type="button" style="width: 150px;" class="btn btn-primary center-block"
 					id="btnPrint" onclick="">พิมพ์ใบนำส่ง</button>
 			</div>
 			<div class="col-sm-2" style="display: flex;">
 				<button type="button" style="width: 150px;"
-					class="btn btn-primary pull-right" id="btnPrintWHT" onclick="">พิมพ์ใบ
+					class="btn btn-primary center-block" id="btnPrintWHT" onclick="">พิมพ์ใบ
 					WHT</button>
 			</div>
 		</div>

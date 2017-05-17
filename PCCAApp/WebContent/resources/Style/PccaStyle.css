@@ -1,0 +1,22 @@
+#btnCaCancel.btn-primary {
+	background-color: #e62e00;
+	border-color: transparent;
+}
+
+#btnCaReqApprove.btn-primary {
+	background-color: #009900;
+	border-color: transparent;
+}
+
+#btnCaReqApprove:hover {
+	background-color: #008000;
+}
+
+#btnCaCancel:hover {
+	background-color: #cc2900;
+}
+
+.PageTitle {
+	white-space: nowrap;
+}
+

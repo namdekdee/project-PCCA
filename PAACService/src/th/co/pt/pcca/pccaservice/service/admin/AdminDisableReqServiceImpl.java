@@ -11,13 +11,14 @@ import th.co.pt.pcca.pccaservice.entities.admin.SetupRequestObject;
 import th.co.pt.pcca.pccaservice.entities.util.ResultObj;
 
 @Service("AdminDisableReqService")
-public class AdminDisableReqServiceImpl implements AdminDisableReqService{
-	
+public class AdminDisableReqServiceImpl implements AdminDisableReqService {
+
 	@Autowired
 	private AdminDisableReqDAO adminDisableReqDAO;
-	
+
 	@Override
-	public List<SetupRequestObject> listSetupReq(SetupRequestObject criteria) throws Exception {
+	public List<SetupRequestObject> listSetupReq(SetupRequestObject criteria)
+			throws Exception {
 		return adminDisableReqDAO.listSetupReq(criteria);
 	}
 
@@ -27,20 +28,21 @@ public class AdminDisableReqServiceImpl implements AdminDisableReqService{
 	}
 
 	@Override
-	public ResultObj deleteSetupReq(List<SetupRequestObject> criteria) throws Exception {
+	public ResultObj deleteSetupReq(List<SetupRequestObject> criteria)
+			throws Exception {
 		return adminDisableReqDAO.deleteSetupReq(criteria);
 	}
 
 	@Override
-	public SetupRequestObject findSetupReq(SetupRequestObject criteria) throws Exception {
+	public SetupRequestObject findSetupReq(SetupRequestObject criteria)
+			throws Exception {
 		return adminDisableReqDAO.findSetupReq(criteria);
 	}
 
 	@Override
-	public ResultObj checkSetupReq(SetUpRequestCriteriaObject criteria) throws Exception {		
+	public ResultObj checkSetupReq(SetUpRequestCriteriaObject criteria)
+			throws Exception {
 		return adminDisableReqDAO.checkSetupReq(criteria);
 	}
-
-	
 
 }

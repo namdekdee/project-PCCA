@@ -36,62 +36,57 @@ public class ApiLoginController {
 	@Autowired
 	private LoginService loginService;
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
-	 @RequestMapping(value = "/account-getmenu", method = RequestMethod.POST)
-	    @ResponseBody
-	    public MemberObj updateCustomer( @RequestBody MemberObj user) throws HTTPException, IOException {
-		 
-		 try
-		 {
-			 logger.info("strart request account-getmenu >> "+user.codempid);
-	        return loginService.GetMember(user.codempid, user.password);
-		 }
-		 catch(Exception ex)
-		 {
-			 logger.error(ex.getMessage());
-			 throw new HTTPException(404);
-		 }
-	 }
-	 
-	 @RequestMapping(value = "/account-getmenu-pms", method = RequestMethod.POST)
-	    @ResponseBody
-	    public MemberObj getMenuPms( @RequestBody MemberObj user) throws HTTPException, IOException {
-		 
-		 try
-		 {
-	        return loginService.GetMemberPms(user.codempid, user.password);
-		 }
-		 catch(Exception ex)
-		 {
-			 throw new HTTPException(404);
-		 }
-	 }
-	 
-	 @RequestMapping(value="/check-member-account", method = RequestMethod.POST)
-	 @ResponseBody
-	 public MemberAccountObj getMemberAccount(@RequestBody MemberObj member) throws HTTPException,IOException {
+
+	@RequestMapping(value = "/account-getmenu", method = RequestMethod.POST)
+	@ResponseBody
+	public MemberObj updateCustomer(@RequestBody MemberObj user)
+			throws HTTPException, IOException {
+
 		try {
-			return loginService.GetMemberAccount(member.codempid, member.password);
+			logger.info("strart request account-getmenu >> " + user.codempid);
+			return loginService.GetMember(user.codempid, user.password);
+		} catch (Exception ex) {
+			logger.error(ex.getMessage());
+			throw new HTTPException(404);
+		}
+	}
+
+	@RequestMapping(value = "/account-getmenu-CA", method = RequestMethod.POST)
+	@ResponseBody
+	public MemberObj updateCustomerCA(@RequestBody MemberObj user)
+			throws HTTPException, IOException {
+
+		try {
+			logger.info("strart request account-getmenuCA >> " + user.codempid);
+			return loginService.GetMemberCA(user.codempid, user.password);
+		} catch (Exception ex) {
+			logger.error(ex.getMessage());
+			throw new HTTPException(404);
+		}
+	}
+
+	@RequestMapping(value = "/account-getmenu-pms", method = RequestMethod.POST)
+	@ResponseBody
+	public MemberObj getMenuPms(@RequestBody MemberObj user)
+			throws HTTPException, IOException {
+
+		try {
+			return loginService.GetMemberPms(user.codempid, user.password);
+		} catch (Exception ex) {
+			throw new HTTPException(404);
+		}
+	}
+
+	@RequestMapping(value = "/check-member-account", method = RequestMethod.POST)
+	@ResponseBody
+	public MemberAccountObj getMemberAccount(@RequestBody MemberObj member)
+			throws HTTPException, IOException {
+		try {
+			return loginService.GetMemberAccount(member.codempid,
+					member.password);
 		} catch (Exception e) {
 			throw new HTTPException(404);
 		}
-	 }
-	
-	 @RequestMapping(value = "/account-getmenuCA", method = RequestMethod.POST)
-	    @ResponseBody
-	    public MemberObj updateCustomerCA( @RequestBody MemberObj user) throws HTTPException, IOException {
-		 
-		 try
-		 {
-			 logger.info("strart request account-getmenu >> "+user.codempid);
-	        return loginService.GetMemberCA(user.codempid, user.password);
-		 }
-		 catch(Exception ex)
-		 {
-			 logger.error(ex.getMessage());
-			 throw new HTTPException(404);
-		 }
-	 }
-	 
-	 
-}
+	}
 
+}

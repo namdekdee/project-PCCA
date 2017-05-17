@@ -27,13 +27,15 @@ public class MenuCaDaoImpl implements MenuCaDao {
 			sql.append(" select hrpv.CODEMPID, ");
 			sql.append(" hrpv.NAMEMPT,");
 			sql.append(" hrpv.CODPOS,");
-			sql.append(" hrpv.NAMPOSE,");
+			sql.append(" hrpv.NAMPOSE ");
 			sql.append(" from HRIS.HRIS_PROFILE_V hrpv ");
+			sql.append(" where hrpv.codempid ='" + codempid + "' ");
 		
 			
 			
 			result = jdbcTemplate.queryForObject(sql.toString(),
 					BeanPropertyRowMapper.newInstance(MemberObj.class));
+			
 			
 			if (!result.codempid.equalsIgnoreCase(null)) {
 				StringBuilder sql_app = new StringBuilder();

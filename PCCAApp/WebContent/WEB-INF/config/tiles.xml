@@ -100,10 +100,20 @@
 		<put-attribute name="body" value="/WEB-INF/views/pcca/ca_request.jsp"></put-attribute>
 	</definition>
 	<definition name="reimburse_home" extends="base.definition">
-		<put-attribute name="body" value="/WEB-INF/views/pcca/reimburse_home.jsp"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/pcca/reimburse_home.jsp"></put-attribute>
 	</definition>
 	<definition name="referForm" extends="base.definition">
 		<put-attribute name="body" value="/WEB-INF/views/pcca/referForm.jsp"></put-attribute>
+	</definition>
+	<definition name="KeyVAT" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/views/pcca/KeyVAT.jsp"></put-attribute>
+	</definition>
+	<definition name="KeyWHT" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/views/pcca/KeyWHT.jsp"></put-attribute>
+	</definition>
+	<definition name="keyExpense" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/views/pcca/keyExpense.jsp"></put-attribute>
 	</definition>
 
 

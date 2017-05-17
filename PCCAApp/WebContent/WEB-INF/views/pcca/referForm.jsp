@@ -8,13 +8,13 @@
 	<div class="row"
 		style="background-color: #DCDCDC; padding-top: .5em; display: flex; flex-flow: row nowrap; height: 2.5em;">
 
-		<div class="col-md-4 col-xs-4 text-left">
-			<label id="lblDlgName">(3)</label>
+		<div class="col-md-4 col-xs-2 text-left">
+			<span class="badge">5</span>
 		</div>
-		<div class="col-md-4 col-xs-4 text-center">
-			<label id="lblDlgName">อ้างอิงใบปฏิบัติงาน</label>
+		<div class="col-md-4 col-xs-8 text-center">
+			<label id="lblDlgName" class="PageTitle">อ้างอิงใบปฏิบัติงาน</label>
 		</div>
-		<div class="col-md-4 col-xs-4 text-right">
+		<div class="col-md-4 col-xs-2 text-right">
 			<label id="lblDlgName" class="glyphicon glyphicon-remove-circle"></label>
 		</div>
 	</div>
@@ -24,7 +24,7 @@
 		<div class="box-body">
 			<div class="row">
 				<div class="form-group">
-					<label for="ddlCaList" class="col-sm-2 col-sm-offset-2 control-label" required>
+					<label for="ddlCaList" class="col-sm-2 col-sm-offset-1 control-label" required>
 						<%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
 						รหัสพนักงาน/ชื่อ
 					</label>
@@ -39,11 +39,11 @@
 				<div class="form-group">
 					<div class="col-sm-2 col-sm-offset-4" style="display: flex;">
 						<button type="button" style="width: 150px;"
-							class="btn btn-primary" id="btnSearch" onclick="">ค้นหา</button>
+							class="btn btn-primary center-block" id="btnSearch" onclick="">ค้นหา</button>
 					</div>
 					<div class="col-sm-2" style="display: flex;">
 						<button type="button" style="width: 150px;"
-							class="btn btn-success pull-right" id="btnOK" onclick="">ตกลง</button>
+							class="btn btn-success center-block" id="btnOK" onclick="">ตกลง</button>
 					</div>
 				</div>
 			</div>

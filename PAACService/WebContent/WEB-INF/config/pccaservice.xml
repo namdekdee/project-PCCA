@@ -61,10 +61,10 @@
 		<!-- <property name="url" value="jdbc:oracle:thin:@172.16.100.53:1526:hrms" 
 			/> -->
 		<property name="url" value="jdbc:oracle:thin:@172.16.100.53:1525:TRAIN" />
-		<property name="username" value="PCCA" />
-		<property name="password" value="pcca!9" />
-<!-- 		<property name="username" value="hris" /> -->
-<!-- 		<property name="password" value="hris$" /> -->
+<!-- 		<property name="username" value="PCCA" /> -->
+<!-- 		<property name="password" value="pcca!9" /> -->
+		<property name="username" value="hris" />
+		<property name="password" value="hris$" />
 		<!-- <property name="password" value="hris984$" /> -->
 	</bean>
 
