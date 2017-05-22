@@ -13,7 +13,8 @@
 			<span class="badge">5</span><br>
 		</div>
 		<div class="col-md-4 col-xs-8 text-center">
-			<label id="lblDlgName" class="PageTitle">บันทึก With Holding Tax</label>
+			<label id="lblDlgName" class="PageTitle">บันทึก With Holding
+				Tax</label>
 		</div>
 		<div class="col-md-4 col-xs-2 text-right">
 			<label id="lblDlgName" class="glyphicon glyphicon-remove-circle"></label>

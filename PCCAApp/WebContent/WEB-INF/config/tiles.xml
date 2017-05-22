@@ -99,6 +99,15 @@
 	<definition name="ca_request" extends="base.definition">
 		<put-attribute name="body" value="/WEB-INF/views/pcca/ca_request.jsp"></put-attribute>
 	</definition>
+	<definition name="ca_search" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/views/pcca/ca_search.jsp"></put-attribute>
+	</definition>
+	<definition name="ca_notice" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/views/pcca/ca_notice.jsp"></put-attribute>
+	</definition>
+	<definition name="ca_setup" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/views/pcca/ca_setup.jsp"></put-attribute>
+	</definition>
 	<definition name="reimburse_home" extends="base.definition">
 		<put-attribute name="body"
 			value="/WEB-INF/views/pcca/reimburse_home.jsp"></put-attribute>
@@ -106,11 +115,11 @@
 	<definition name="referForm" extends="base.definition">
 		<put-attribute name="body" value="/WEB-INF/views/pcca/referForm.jsp"></put-attribute>
 	</definition>
-	<definition name="KeyVAT" extends="base.definition">
-		<put-attribute name="body" value="/WEB-INF/views/pcca/KeyVAT.jsp"></put-attribute>
+	<definition name="keyVAT" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/views/pcca/keyVAT.jsp"></put-attribute>
 	</definition>
-	<definition name="KeyWHT" extends="base.definition">
-		<put-attribute name="body" value="/WEB-INF/views/pcca/KeyWHT.jsp"></put-attribute>
+	<definition name="keyWHT" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/views/pcca/keyWHT.jsp"></put-attribute>
 	</definition>
 	<definition name="keyExpense" extends="base.definition">
 		<put-attribute name="body" value="/WEB-INF/views/pcca/keyExpense.jsp"></put-attribute>

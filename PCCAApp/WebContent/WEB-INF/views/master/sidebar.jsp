@@ -36,22 +36,6 @@
 		<div id="divMenu"></div>
 	</section>
 
-	<!-- Draft 3 Menus -->
-	<ul class='treeview-menu'>
-		<li><a href="member-workout"> <i
-				class="glyphicon glyphicon-xbt"></i><span>
-					เบิกทดรองจ่าย</span> <span class="pull-right-container"> </span>
-		</a></li>
-		<li><a href="member-workout"> <i
-				class="glyphicon glyphicon-xbt"></i><span>
-					เบิกค่าใช้จ่าย</span> <span class="pull-right-container"> </span>
-		</a></li>
-		<li><a href="member-workout"> <i
-				class="glyphicon glyphicon-xbt"></i><span>
-					เบิกเงินสดย่อย</span> <span class="pull-right-container"> </span>
-		</a></li>
-
-	</ul>
 
 
 	<!-- /.sidebar -->

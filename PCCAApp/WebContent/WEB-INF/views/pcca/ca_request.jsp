@@ -13,7 +13,7 @@
 	});
 
 	function popUpReq() {
-		$('#modalReq').modal('show');
+		$('#modalRequest').modal('show');
 	}
 	function initdropdown() {
 		SetDropDownCompany('ddlCaList');
@@ -142,7 +142,7 @@
 					</label>
 					<div class="col-sm-6">
 						<input type="text" id="inputCaObj" class="form-control"
-							placeholder="ระบุ...">
+							placeholder="ระบุ..." maxlength="50">
 					</div>
 
 				</div>
@@ -204,8 +204,11 @@
 							data-placeholder="เลือกบริษัท">
 							<%-- 							<select id="ddlCompany" class="form-control select2" style="width: 100%;" --%>
 							<!-- 							data-placeholder="เลือกบริษัท"> -->
-							<option value="PTG">PTG</option>
-							<option value="PTG1">PTG1</option>
+							<option value="PTG">PTG พีทีจี เอ็นเนอยี</option>
+							<option value="PTC">PTC พีทีซี</option>
+							<option value="PUN">PUN กาแฟพันธุ์ไทย</option>
+							<option value="PTGLG">PTGLG พีทีจี โลจิสติก</option>
+
 						</select>
 					</div>
 				</div>
@@ -254,7 +257,7 @@
 						<div class="col-sm-2" style="display: flex;">
 							<button type="button" style="width: 80%;"
 								class="btn btn-primary center-block" id="btnCaReqApprove"
-								onclick="popUpReq">ขออนุมัติ</button>
+								onclick="popUpReq();">ขออนุมัติ</button>
 						</div>
 					</div>
 				</div>
@@ -310,15 +313,11 @@
 
 		<!-- Modal content-->
 		<div class="modal-content" style="background-color: #ffff33;">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title">รายการหนี้คงค้าง</h4>
-			</div>
 			<div class="modal-body">
-				<label>ถ้าอนุมัติภายในวันที่ xxx จะได้รับเงินวันที่ xxx
-					โดยข้อมูลวันที่ มาจากตาราง Due date และถ้าเลือก รายการที่ขอเบิกเป็น
-					ค่าใช้จ่ายเพื่อบริษัท แสดงข้อความเพิ่ม
-					“กรณีเบิกค่าใช้จ่ายในการเดินทาง ต้องทำใบปฏิบัติงานภายนอกภายใน15วัน
+				<label style="text-align: center;">ถ้าอนุมัติภายในวันที่ <br>
+					$Date จะได้รับเงินวันที่ <br> $Date<br> <br>
+					โปรดเคลียร์เงินทดรองภายในเวลาที่บริษัทกำหนด
+
 				</label>
 			</div>
 			<div class="modal-footer">

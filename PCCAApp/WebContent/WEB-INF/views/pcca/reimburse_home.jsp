@@ -109,9 +109,8 @@
 						placeholder="0.00" readonly>
 				</div>
 				<div class="col-sm-2">
-					<button type="button" class="btn custom-button center-block"
-						id="btnSaveWorkOut" onclick="SaveWorkOut('S');">&nbsp;
-						บันทึก</button>
+					<button type="button" class="btn btn-success center-block"
+						style="width: 80%;" onclick="location.href='keyExpense';">บันทึก</button>
 				</div>
 			</div>
 
@@ -127,9 +126,8 @@
 						placeholder="0.00" readonly>
 				</div>
 				<div class="col-sm-2">
-					<button type="button" class="btn custom-button center-block"
-						id="btnSaveWorkOut" onclick="SaveWorkOut('S');">&nbsp;
-						บันทึก</button>
+					<button type="button" class="btn btn-success center-block"
+						style="width: 80%;" onclick="location.href='keyExpense';">บันทึก</button>
 				</div>
 			</div>
 
@@ -177,8 +175,8 @@
 			</div>
 			<div>
 				<div class="col-sm-2" style="display: flex;">
-					<button type="button" style="width: 150px;" class="btn btn-success center-block" 
-						id="btnReqApprove" onclick="">ส่งอนุมัติ</button>
+					<button type="button" style="width: 150px;"
+						class="btn btn-success center-block" id="btnReqApprove" onclick="">ส่งอนุมัติ</button>
 				</div>
 			</div>
 			<div>
@@ -193,8 +191,8 @@
 	<div class="row">
 		<div class="form-group">
 			<div class="col-sm-2 col-sm-offset-3" style="display: flex;">
-				<button type="button" style="width: 150px;" class="btn btn-primary center-block"
-					id="btnPrint" onclick="">พิมพ์ใบนำส่ง</button>
+				<button type="button" style="width: 150px;"
+					class="btn btn-primary center-block" id="btnPrint" onclick="">พิมพ์ใบนำส่ง</button>
 			</div>
 			<div class="col-sm-2" style="display: flex;">
 				<button type="button" style="width: 150px;"
