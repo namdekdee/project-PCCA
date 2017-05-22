@@ -13,8 +13,7 @@
 			<span class="badge">5</span><br>
 		</div>
 		<div class="col-md-4 col-xs-8 text-center">
-			<label id="lblDlgName" class="PageTitle">บันทึก With Holding
-				Tax</label>
+			<label id="lblDlgName" class="PageTitle">WithHoldingTax</label>
 		</div>
 		<div class="col-md-4 col-xs-2 text-right">
 			<label id="lblDlgName" class="glyphicon glyphicon-remove-circle"></label>
@@ -26,7 +25,7 @@
 		<div class="box-body">
 			<div class="row">
 				<div class="form-group">
-					<div class="col-sm-3 col-sm-offset-2 control-label">
+					<div class="col-sm-4 col-sm-offset-2 control-label">
 						<div class="radio">
 							<label><input type="radio" name="optradio">หัก
 								WHT</label>
@@ -42,8 +41,8 @@
 			</div>
 			<div class="row">
 				<div class="form-group">
-					<label for="ddlCaList" class="col-sm-3 control-label" required>
-						<%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
+					<label for="ddlCaList" class="col-sm-4 control-label" required>
+						<%-- 																		<spring:message code="member.worktime.criteria.company" /> --%>
 						จำนวนเงิน
 					</label>
 					<div class="col-sm-3">
@@ -51,14 +50,12 @@
 							placeholder="0.00" readonly>
 					</div>
 					<label for="ddlCaList" class="col-sm-1 control-label" required>
-						<%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
+						<%-- 																		<spring:message code="member.worktime.criteria.company" /> --%>
 						หัก%
 					</label>
 					<div class="col-sm-2">
 						<select id="ddlCompany" class="form-control" style="width: 100%;"
 							data-placeholder="เลือกบริษัท">
-							<%-- 							<select id="ddlCompany" class="form-control select2" style="width: 100%;" --%>
-							<!-- 							data-placeholder="เลือกบริษัท"> -->
 							<option value="5">5.00</option>
 							<option value="10">10.00</option>
 						</select>
@@ -67,8 +64,8 @@
 			</div>
 			<div class="row">
 				<div class="form-group">
-					<label for="ddlCaList" class="col-sm-3 control-label" required>
-						<%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
+					<label for="ddlCaList" class="col-sm-4 control-label" required>
+						<%-- 																		<spring:message code="member.worktime.criteria.company" /> --%>
 						จำนวนเงินจ่าย
 					</label>
 					<div class="col-sm-3">
@@ -79,8 +76,8 @@
 			</div>
 			<div class="row">
 				<div class="form-group">
-					<label for="ddlCaList" class="col-sm-3 control-label" required>
-						<%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
+					<label for="ddlCaList" class="col-sm-4 control-label" required>
+						<%-- 																		<spring:message code="member.worktime.criteria.company" /> --%>
 						จำนวนเงินหัก
 					</label>
 					<div class="col-sm-3">
@@ -91,8 +88,7 @@
 			</div>
 			<div class="row">
 				<div class="form-group">
-					<label for="lblvat" class="col-sm-3 control-label"> <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
-						TAX-ID
+					<label for="lblvat" class="col-sm-4 control-label"> TAX-ID
 					</label>
 					<div class="col-sm-2">
 						<input type="text" id="inputCaObj" class="form-control"
@@ -103,8 +99,7 @@
 
 			<div class="row">
 				<div class="form-group">
-					<label for="lblvat" class="col-sm-3 control-label"> <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
-						Branch
+					<label for="lblvat" class="col-sm-4 control-label"> Branch
 					</label>
 					<div class="col-sm-2">
 						<input type="text" id="inputCaObj" class="form-control"
@@ -114,8 +109,7 @@
 			</div>
 			<div class="row">
 				<div class="form-group">
-					<label for="lblvat" class="col-sm-3 control-label"> <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
-						วันที่
+					<label for="lblvat" class="col-sm-4 control-label"> วันที่
 					</label>
 					<div class="col-sm-2">
 						<input type="text" id="inputCaObj" class="form-control"
@@ -125,8 +119,8 @@
 			</div>
 			<div class="row">
 				<div class="form-group">
-					<label for="ddlCaList" class="col-sm-3 control-label" required>
-						<%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
+					<label for="ddlCaList" class="col-sm-4 control-label" required>
+						<%-- 					<spring:message code="member.worktime.criteria.company" /> --%>
 						ชื่อผู้รับเงิน
 					</label>
 					<div class="col-sm-4">
@@ -137,8 +131,8 @@
 			</div>
 			<div class="row">
 				<div class="form-group">
-					<label for="ddlCaList" class="col-sm-3 control-label" required>
-						<%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
+					<label for="ddlCaList" class="col-sm-4 control-label" required>
+						<%-- 																		<spring:message code="member.worktime.criteria.company" /> --%>
 						ที่อยู่ผู้รับเงิน
 					</label>
 					<div class="col-sm-4">
@@ -148,15 +142,14 @@
 			</div>
 			<div class="row">
 				<div class="form-group">
-					<label for="ddlCaList" class="col-sm-3 control-label" required>
-						<%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
+					<label for="ddlCaList" class="col-sm-4 control-label" required>
+						<%-- 																		<spring:message code="member.worktime.criteria.company" /> --%>
 						ประเภทเงินได้
 					</label>
 					<div class="col-sm-2">
 						<select id="ddlCompany" class="form-control" style="width: 100%;"
 							data-placeholder="เลือกบริษัท">
-							<%-- 							<select id="ddlCompany" class="form-control select2" style="width: 100%;" --%>
-							<!-- 							data-placeholder="เลือกบริษัท"> -->
+
 							<option value="personal">บุคคล</option>
 							<option value=""></option>
 						</select>

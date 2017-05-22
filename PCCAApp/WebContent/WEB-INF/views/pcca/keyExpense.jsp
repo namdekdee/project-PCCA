@@ -9,6 +9,12 @@
 	padding-top: 10px;
 	margin-bottom: 0;
 	text-align: center;
+	font-size: larger;
+	color: #00a65a;
+}
+
+.box-body {
+	margin-right: 20px;
 }
 </style>
 <script>
@@ -131,7 +137,6 @@
 		</div>
 	</div>
 
-
 	<div class="row" style="background-color: #ffffff;">
 		<div class="box-body">
 			<div class="form-group">
@@ -153,34 +158,16 @@
 			</div>
 		</div>
 	</div>
-	<div class="row"
-		style="background-color: rgb(199, 253, 193); height: 40px;">
-		<div class="form-group">
-			<div class="col-sm-2"></div>
-			<label for="ddlCaList" class="col-sm-4 listHead" > <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
-				รายการหลัก
-			</label> <label for="ddlCaList" class="col-sm-4 listHead" > <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
-				รายการย่อย
-			</label>
-			<div class="col-sm-2"></div>
-		</div>
-	</div>
-
-
-
 	<div id="divExpenseForm">
-		<form class="form-horizontal"
-			style="padding-left: 10px; padding-right: 10px;">
-
-
-			<div class="row col-sm-8 col-sm-offset-2" style="padding-top: 10px;">
+		<div class="box-body col-sm-8 col-sm-offset-2" style="">
+			<div class="row">
 				<div class="form-group">
 					<div class="col-sm-6">
-						<select id="ddlCompany" class="form-control" style="width: 100%;"
+						<label for="lblvat" class="col-sm-4 control-label listHead">
+							<%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
+							รายการหลัก
+						</label> <select id="ddlCompany" class="form-control" style="width: 100%;"
 							data-placeholder="เลือก" onchange="showDiv(this)">
-							<%-- 							<select id="ddlCompany" class="form-control select2" style="width: 100%;" --%>
-							<!-- 							data-placeholder="เลือกบริษัท">
-				-->
 							<option value="ddlPhone">ค่าโทรศัพท์,อินเทอร์เน็ต</option>
 							<option value="ddlTrasport">ค่าเดินทาง</option>
 							<option value="ddlAccom">ค่าใช้จ่ายพนักงาน</option>
@@ -188,20 +175,23 @@
 						</select>
 					</div>
 					<div class="col-sm-6">
-						<select id="ddlCompany" class="form-control" style="width: 100%;"
-							data-placeholder="เลือก">
-							<%-- 							<select id="ddlCompany" class="form-control select2" style="width: 100%;" --%>
-							<!-- 							data-placeholder="เลือกบริษัท"> -->
+						<label for="lblvat" class="col-sm-4 control-label listHead">
+							<%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
+							รายการหลัก
+						</label> <select id="ddlCompany" class="form-control" style="width: 100%;"
+							data-placeholder="เลือก" onchange="showDiv(this)">
 							<option value="phone">ค่าโทรศัพท์</option>
 							<option value="trans">ค่าเดินทาง</option>
 							<option value="accom">ค่าที่พัก</option>
+							<option value="ddlAllow">ค่าเบี้ยเลี้ยง</option>
 						</select>
 					</div>
 				</div>
 			</div>
-		</form>
-
+		</div>
 	</div>
+	<!-- Div Expense -->
+
 	<div id="ServiceForm" style="">
 		<form class="form-horizontal"
 			style="padding-left: 10px; padding-right: 10px;">
@@ -315,6 +305,7 @@
 			</div>
 		</form>
 	</div>
+	<!-- End Service -->
 
 	<div id="TransportForm" style="">
 		<form class="form-horizontal"
@@ -396,19 +387,19 @@
 				<div class="row">
 					<div class="col-sm-3 col-sm-offset-3 control-label">
 						<button type="button" style="width: 150px;"
-							class="btn btn-primary pull-right" id="btnAddCaList"
+							class="btn btn-primary center-block" id="btnAddCaList"
 							onclick="AddExpense();">เพิ่มรายการ</button>
 					</div>
 					<div class="col-sm-3  control-label">
 						<button type="button" style="width: 150px;"
-							class="btn btn-success pull-right" id="btnAddCaList" onclick="">บันทึก</button>
+							class="btn btn-success center-block" id="btnAddCaList" onclick="">บันทึก</button>
 					</div>
 				</div>
-
 			</div>
-
 		</form>
 	</div>
+	<!-- End Transport -->
+
 
 	<div id="Accommodation" style="">
 		<form class="form-horizontal"
@@ -602,13 +593,17 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="form-group ">
-						<label class="radio-inline col-sm-3 control-label"
-							style="font-weight: 700;"> <input type="radio"
-							name="optradio" id="halfDay">ครึ่งวัน
-						</label> <label class="radio-inline col-sm-3" style="font-weight: 700;">
-							<input type="radio" name="optradio" id="fullDay">เต็มวัน
-						</label>
+					<div class="form-group">
+						<div class="col-sm-2 col-sm-offset-3">
+							<label class="radio-inline" style="font-weight: 700;"><input
+								type="radio" name="optRadio" value="radioReqAprvDay"
+								class="setRadio">&nbsp;&nbsp; ครึ่งวัน</label>
+						</div> 
+						<div class="col-sm-3">
+							<label class="radio-inline" style="font-weight: 700;"><input
+								type="radio" name="optRadio" value="radioWorkDay"
+								class="setRadio">&nbsp;&nbsp; เต็มวัน</label>
+						</div>
 					</div>
 				</div>
 				<div class="row">
@@ -636,12 +631,12 @@
 				<div class="row">
 					<div class="col-sm-3 col-sm-offset-3 control-label">
 						<button type="button" style="width: 150px;"
-							class="btn btn-primary pull-right" id="btnAddCaList"
+							class="btn btn-primary center-block" id="btnAddCaList"
 							onclick="AddExpense();">เพิ่มรายการ</button>
 					</div>
 					<div class="col-sm-3  control-label">
 						<button type="button" style="width: 150px;"
-							class="btn btn-success pull-right" id="btnAddCaList" onclick="">บันทึก</button>
+							class="btn btn-success center-block" id="btnAddCaList" onclick="">บันทึก</button>
 					</div>
 				</div>
 
@@ -661,13 +656,14 @@
 		<div class="panel panel-default">
 			<div class="panel-heading"
 				style="background-color: rgb(199, 253, 193);">
-				<h4 class="panel-title">
+				<h6 class="panel-title">
 					<a class="accordion-toggle" data-toggle="collapse"
 						data-parent="#accordion" href="#collapseOne"> <span
 						class="glyphicon glyphicon-chevron-down"> <label class="aa">บันทึกรายการค่าใช้จ่าย
-						</label></span>
+						</label>
+					</span>
 					</a>
-				</h4>
+				</h6>
 			</div>
 			<div id="collapseOne" class="panel-collapse collapse ">
 				<div class="panel-body">
@@ -710,5 +706,4 @@
 		</div>
 	</div>
 </div>
-
-</div>
+<!-- End Modal Upload -->

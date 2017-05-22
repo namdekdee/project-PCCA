@@ -7,13 +7,29 @@
 <script>
 	$('document').ready(function() {
 		initdropdown();
-
 		$('#myModal').modal('show');
+
+		var length = 1;
+		$("#btnAddCaList").click(function() {
+			alert();
+			clone = $("#addList").clone()
+			$("#addList").append(clone).attr('id', 'aa-' + length++);
+		})
 
 	});
 
 	function popUpReq() {
-		$('#modalRequest').modal('show');
+		if (document.getElementById("ddlCaList").value == "forComp") {
+			// 			alert("ModalForComp");
+			$('#modalRequest').modal('show');
+			document.getElementById("lblForComp").style.display = 'block';
+
+		} else {
+			// 			alert("Modal");
+			$('#modalRequest').modal('show');
+
+		}
+
 	}
 	function initdropdown() {
 		SetDropDownCompany('ddlCaList');
@@ -129,6 +145,9 @@
 					<div class="col-sm-6">
 						<select id="ddlCaList" class="form-control select2" onchange=""
 							style="width: 100%;" data-placeholder="เลือกรายการที่ขอเบิก">
+							<option value="forComp">ค่าใช้จ่ายเพื่อบริษัท</option>
+							<option value="openBranch">ค่าใช้จ่ายเพื่อเปิดสาขา</option>
+							<option value="forRegist">ค่าใช้จ่ายเพื่อจดสิทธิ์</option>
 						</select>
 					</div>
 				</div>
@@ -193,45 +212,39 @@
 					</div>
 				</div>
 			</div>
-			<div class="row" id="addCompanyDiv">
-				<div class="form-group" id="formCompanyDiv">
-					<label id="lblCaCompany" class="col-sm-3 control-label" required>
-						<%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
-						เบิกจากบริษัท
-					</label>
-					<div class="col-sm-6">
-						<select id="ddlCompany" class="form-control" style="width: 100%;"
-							data-placeholder="เลือกบริษัท">
-							<%-- 							<select id="ddlCompany" class="form-control select2" style="width: 100%;" --%>
-							<!-- 							data-placeholder="เลือกบริษัท"> -->
-							<option value="PTG">PTG พีทีจี เอ็นเนอยี</option>
-							<option value="PTC">PTC พีทีซี</option>
-							<option value="PUN">PUN กาแฟพันธุ์ไทย</option>
-							<option value="PTGLG">PTGLG พีทีจี โลจิสติก</option>
+			<div id="addList">
+				<div class="row" id="addCompanyDiv">
+					<div class="form-group" id="formCompanyDiv">
+						<label id="lblCaCompany" class="col-sm-3 control-label" required>เบิกจากบริษัท</label>
+						<div class="col-sm-6">
+							<select id="ddlCompany" class="form-control" style="width: 100%;"
+								data-placeholder="เลือกบริษัท">
+								<option value="PTG">PTG พีทีจี เอ็นเนอยี</option>
+								<option value="PTC">PTC พีทีซี</option>
+								<option value="PUN">PUN กาแฟพันธุ์ไทย</option>
+								<option value="PTGLG">PTGLG พีทีจี โลจิสติก</option>
+							</select>
+						</div>
+					</div>
+				</div>
 
-						</select>
+				<div class="row" id="addAmountCaDiv">
+					<div class="form-group" id="AmountCaDiv">
+						<label id="lblCaAmount" class="col-sm-3 control-label">
+							จำนวนเงิน </label>
+						<div class="col-sm-2">
+							<input type="text" id="inputCaAmount" class="form-control"
+								placeholder="ระบุ...">
+						</div>
 					</div>
 				</div>
 			</div>
-
-			<div class="row" id="addAmountCaDiv">
-				<div class="form-group" id="AmountCaDiv">
-					<label id="lblCaAmount" class="col-sm-3 control-label">
-						จำนวนเงิน </label>
-					<div class="col-sm-2">
-						<input type="text" id="inputCaAmount" class="form-control"
-							placeholder="ระบุ...">
-					</div>
-
-				</div>
-			</div>
-
 			<div class="row">
 				<div class="col-sm-3 col-sm-offset-5 control-label">
 					<button type="button" style="width: 150px;"
 						class="btn btn-primary center-block" id="btnAddCaList"
-						onclick="AddCaList();">เพิ่มรายการ</button>
-				</div>
+						onclick="length++">เพิ่มรายการ</button>
+				</div> 
 			</div>
 
 			<div class="row">
@@ -315,10 +328,10 @@
 		<div class="modal-content" style="background-color: #ffff33;">
 			<div class="modal-body">
 				<label style="text-align: center;">ถ้าอนุมัติภายในวันที่ <br>
-					$Date จะได้รับเงินวันที่ <br> $Date<br> <br>
+					$Date <br> จะได้รับเงินวันที่ <br> $Date<br> <br>
 					โปรดเคลียร์เงินทดรองภายในเวลาที่บริษัทกำหนด
-
-				</label>
+				</label> <label id="lblForComp" style="text-align: center; display: none;">กรณีเบิกค่าใช้จ่ายในการเดินทาง
+					ต้องทำใบปฏิบัติงานภายนอกภายใน15วัน</label>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-primary center-block"

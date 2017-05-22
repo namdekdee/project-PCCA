@@ -6,26 +6,12 @@
 
 
 <div>
-	<div class="row"
-		style="background-color: #DCDCDC; padding-top: .5em; display: flex; flex-flow: row nowrap; height: 2.5em;">
-
-		<div class="col-md-4 col-xs-2 text-left">
-			<span class="badge">5</span>
-		</div>
-		<div class="col-md-4 col-xs-8 text-center">
-			<label id="lblDlgName" class="PageTitle">บันทึก VAT</label>
-		</div>
-		<div class="col-md-4 col-xs-2 text-right">
-			<label id="lblDlgName" class="glyphicon glyphicon-remove-circle"></label>
-		</div>
-	</div>
-
 	<form class="form-horizontal"
 		style="padding-left: 10px; padding-right: 10px;">
 		<div class="box-body">
 			<div class="row">
 				<div class="form-group">
-					<label for="ddlCaList" class="col-sm-3 control-label" required>
+					<label for="ddlCaList" class="col-sm-4 control-label" required>
 						<%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
 						จำนวนเงินจ่าย
 					</label>
@@ -46,7 +32,7 @@
 			</div>
 			<div class="row">
 				<div class="form-group">
-					<label for="lblvat" class="col-sm-3 control-label"> <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
+					<label for="lblvat" class="col-sm-4 control-label"> <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
 						VAT
 					</label>
 					<div class="col-sm-2">
@@ -57,7 +43,7 @@
 			</div>
 			<div class="row">
 				<div class="form-group">
-					<label for="lblvat" class="col-sm-3 control-label"> <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
+					<label for="lblvat" class="col-sm-4 control-label"> <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
 						VAT-BASE
 					</label>
 					<div class="col-sm-2">
@@ -69,7 +55,7 @@
 
 			<div class="row">
 				<div class="form-group">
-					<label for="ddlCaList" class="col-sm-3 control-label" required>
+					<label for="ddlCaList" class="col-sm-4 control-label" required>
 						<%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
 						TAX-NUMBER เลขที่ใบกำกับภาษี
 					</label>
@@ -81,7 +67,7 @@
 			</div>
 			<div class="row">
 				<div class="form-group">
-					<label for="lblvat" class="col-sm-3 control-label"> <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
+					<label for="lblvat" class="col-sm-4 control-label"> <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
 						TAX-ID
 					</label>
 					<div class="col-sm-2">
@@ -93,7 +79,7 @@
 
 			<div class="row">
 				<div class="form-group">
-					<label for="lblvat" class="col-sm-3 control-label"> <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
+					<label for="lblvat" class="col-sm-4 control-label"> <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
 						Branch
 					</label>
 					<div class="col-sm-2">
@@ -105,7 +91,7 @@
 
 			<div class="row">
 				<div class="form-group">
-					<label for="lblvat" class="col-sm-3 control-label"> <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
+					<label for="lblvat" class="col-sm-4 control-label"> <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
 						วันที่
 					</label>
 					<div class="col-sm-2">
@@ -116,7 +102,7 @@
 			</div>
 			<div class="row">
 				<div class="form-group">
-					<label for="ddlCaList" class="col-sm-3 control-label" required>
+					<label for="ddlCaList" class="col-sm-4 control-label" required>
 						<%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
 						ชื่อผู้ค้า
 					</label>
@@ -128,7 +114,7 @@
 			</div>
 			<div class="row">
 				<div class="form-group">
-					<label for="ddlCaList" class="col-sm-3 control-label" required>
+					<label for="ddlCaList" class="col-sm-4 control-label" required>
 						<%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
 						ที่อยู่ผู้ค้า
 					</label>
@@ -152,4 +138,3 @@
 
 
 </div>
-</html>

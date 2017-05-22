@@ -108,6 +108,9 @@
 	<definition name="ca_setup" extends="base.definition">
 		<put-attribute name="body" value="/WEB-INF/views/pcca/ca_setup.jsp"></put-attribute>
 	</definition>
+	<definition name="ca_report" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/views/pcca/ca_report.jsp"></put-attribute>
+	</definition>
 	<definition name="reimburse_home" extends="base.definition">
 		<put-attribute name="body"
 			value="/WEB-INF/views/pcca/reimburse_home.jsp"></put-attribute>
@@ -121,8 +124,8 @@
 	<definition name="keyWHT" extends="base.definition">
 		<put-attribute name="body" value="/WEB-INF/views/pcca/keyWHT.jsp"></put-attribute>
 	</definition>
-	<definition name="keyExpense" extends="base.definition">
-		<put-attribute name="body" value="/WEB-INF/views/pcca/keyExpense.jsp"></put-attribute>
+	<definition name="test" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/views/pcca/test.jsp"></put-attribute>
 	</definition>
 
 
