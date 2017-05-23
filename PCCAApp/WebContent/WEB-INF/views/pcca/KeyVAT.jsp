@@ -6,6 +6,19 @@
 
 
 <div>
+	<div class="row"
+		style="background-color: #DCDCDC; padding-top: .5em; display: flex; flex-flow: row nowrap; height: 2.5em;">
+
+		<div class="col-md-4 col-xs-2 text-left">
+			<span class="badge">5</span><br>
+		</div>
+		<div class="col-md-4 col-xs-8 text-center">
+			<label id="" class="PageTitle">บันทึก VAT</label>
+		</div>
+		<div class="col-md-4 col-xs-2 text-right">
+			<label id="lblDlgName" class="glyphicon glyphicon-remove-circle"></label>
+		</div>
+	</div>
 	<form class="form-horizontal"
 		style="padding-left: 10px; padding-right: 10px;">
 		<div class="box-body">

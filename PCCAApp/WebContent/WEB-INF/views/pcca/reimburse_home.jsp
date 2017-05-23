@@ -3,8 +3,64 @@
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<script>
+	$(document)
+			.ready(
+					function() {
+						$('#chkRefer')
+								.click(
+										function() {
+											if (document
+													.getElementById('chkRefer').checked)
+												window.open("referForm",
+														"อ้างอิงใบปฏิบัติงาน",
+														"width=500,height=500");
+										});
 
-<div>
+						if (status == "Approve") {
+							alert("Expense Approve");
+							document.getElementById('lblHeadName').innerHTML = 'อนุมัติค่าใช้จ่าย';
+							$("#reimburse :input").prop("disabled", true);
+							$("#reimBtn1").hide();
+							$("#reimBtn2").hide();
+							$("#apprvComment").show();
+							$("#apprvComment :input").prop("disabled", false);
+							$("#apprvBtn").show();
+							$("#apprvBtn :input").prop("disabled", false);
+						} else {
+							alert("Requester Edit");
+							$("#reimBtn1").hide();
+							$("#reimBtn2").hide();
+							$("#reqEditBtn1").show();
+							$("#apprvComment").show();
+							$("#apprvComment :input").prop("disabled", true);
+							$("#reqEditBtn2").show();
+
+						}
+					});
+
+	function payin() {
+		alert();
+		document.getElementById('lblHeadName').innerHTML = 'Upload ใบนำฝาก';
+		$("#reimBtn1").hide();
+		$("#reimBtn2").hide();
+		$("#reimburse :input").prop("disabled", true);
+		var elems = document.getElementsByClassName("btnSave");
+		for (var i = 0; i < elems.length; i++) {
+			elems[i].innerHTML = "ตรวจสอบ";
+		}
+		$("#payinBtn :input").prop("disabled", false);
+		$("#payinBtn").show();
+
+	}
+</script>
+<style>
+table#tbReim {
+	width: 70%;
+	margin: 0px auto;
+}
+</style>
+<div id="reimburse">
 	<div class="row"
 		style="background-color: #DCDCDC; padding-top: .5em; display: flex; flex-flow: row nowrap; height: 2.5em;">
 
@@ -12,7 +68,7 @@
 			<span class="badge">5</span>
 		</div>
 		<div class="col-md-4 col-xs-8 text-center">
-			<label id="lblDlgName" class="PageTitle">สรุปค่าใช้จ่าย</label>
+			<label id="lblHeadName" class="PageTitle">สรุปค่าใช้จ่าย</label>
 		</div>
 		<div class="col-md-4 col-xs-2 text-right">
 			<label id="lblDlgName" class="glyphicon glyphicon-remove-circle"></label>
@@ -47,7 +103,7 @@
 			<div class="row" id="addCompanyDiv">
 				<div class="form-group" id="fromCompanyDiv">
 					<label id="lblCaCompany" class="col-sm-3 control-label" required>
-						<spring:message code="member.worktime.criteria.company" />
+						<%-- 						<spring:message code="member.worktime.criteria.company" /> --%>
 						เบิกจากบริษัท
 					</label>
 					<div class="col-sm-6">
@@ -64,8 +120,8 @@
 			<div class="row">
 				<div class="form-group " id="haveForm">
 					<div class="col-sm-6 col-sm-offset-3">
-						<input id="inputAcceptCond" type="checkbox" class="minimal"
-							style="position: absolute; opacity: 0;"> <label>มีใบปฏิบัติงาน</label>
+						<input id="chkRefer" type="checkbox"
+							style="width: 20px; height: 20px;"> <label>มีใบปฏิบัติงาน</label>
 						<input type="text" id="inputCaAmount" class="form-control"
 							placeholder="ระบุ...">
 					</div>
@@ -75,7 +131,7 @@
 			<div class="row">
 				<div class="form-group">
 					<label class="col-sm-3 control-label" id="lblStartDate" required>
-						<spring:message code="member.worktime.criteria.date" />
+						<%-- 						<spring:message code="member.worktime.criteria.date" /> --%>
 						ตั้งแต่วันที่ <span style="color: red;">*</span>
 					</label>
 
@@ -98,7 +154,8 @@
 			</div>
 
 			<div class="row">
-				<hr class="col-xs-12 col-lg-12" style="background-color: black;">
+				<hr class="col-xs-12 col-lg-12"
+					style="background-color: rgba(0, 166, 90, 0.29);">
 				<label class="col-sm-2 col-sm-offset-3">1 มีค 60</label>
 
 				<div class="col-sm-2 text-center">
@@ -109,13 +166,14 @@
 						placeholder="0.00" readonly>
 				</div>
 				<div class="col-sm-2">
-					<button type="button" class="btn btn-success center-block"
+					<button type="button" class="btn btn-success center-block btnSave"
 						style="width: 80%;" onclick="location.href='keyExpense';">บันทึก</button>
 				</div>
 			</div>
 
 			<div class="row">
-				<hr class="col-xs-12 col-lg-12" style="background-color: black;">
+				<hr class="col-xs-12 col-lg-12"
+					style="background-color: rgba(0, 166, 90, 0.29);">
 				<label class="col-sm-2 col-sm-offset-3">1 มีค 60</label>
 
 				<div class="col-sm-2 text-center">
@@ -126,25 +184,20 @@
 						placeholder="0.00" readonly>
 				</div>
 				<div class="col-sm-2">
-					<button type="button" class="btn btn-success center-block"
+					<button type="button" class="btn btn-success center-block btnSave"
 						style="width: 80%;" onclick="location.href='keyExpense';">บันทึก</button>
 				</div>
 			</div>
 
 
+
 		</div>
 		<!-- box-body -->
-
-
-
 	</form>
 
-
-
-
-	<div class="row" style="background-color: rgba(0, 158, 166, 0.19);">
+	<div class="row" style="background-color: rgb(210, 240, 204);">
 		<div class="col-xs-12 col-sm-7 col-md-6 col-md-offset-2">
-			<label id="lblCaNo">รวม 3วัน</label>
+			<label id="lblCaNo">รวม 3 วัน</label>
 		</div>
 		<div class="col-xs-6 col-md-4" style="text-align: justify;">0.00
 			บาท</div>
@@ -165,9 +218,57 @@
 		</div>
 	</div>
 
+	<div id="reqEditBtn1" class="row" style="display: none;">
+		<br>
+		<div class="form-group">
+			<div class="col-sm-2 col-sm-offset-3" style="display: flex;">
+				<button type="button" style="width: 150px;"
+					class="btn btn-primary center-block" id="btnPayin" onclick="">พิมพ์ใบนำฝาก</button>
+			</div>
+			<div>
+				<div class="col-sm-2 " style="display: flex;">
+					<button type="button" style="width: 150px;"
+						class="btn btn-primary center-block" id="btnUpload" onclick="">Upload</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="apprvComment" style="display: none;">
+		<form class="form-horizontal"
+			style="padding-left: 10px; padding-right: 10px;">
+			<div class="box-body">
+				<div class="row" id="addCompanyDiv">
+					<div class="form-group" id="fromCompanyDiv">
+						<label id="" class="col-sm-3 control-label" required>
+							ความเห็นจากผู้อนุมัติ </label>
+						<div class="col-sm-4">
+							<textarea class="form-control" rows="4" id="commentAprv"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<div id="reqEditBtn2" class="row" style="display: none;">
+		<div class="form-group">
+			<div class="col-sm-2 col-sm-offset-3" style="display: flex;">
+				<button type="button" style="width: 150px;"
+					class="btn btn-warning center-block" id="btnSaveDraft" onclick="">บันทึกชั่วคราว</button>
+			</div>
+			<div>
+				<div class="col-sm-2 " style="display: flex;">
+					<button type="button" style="width: 150px;"
+						class="btn btn-success center-block" id="btnReqAprv" onclick="">ส่งอนุมัติ</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<br>
 
-	<div class="row">
+	<div id="reimBtn1" class="row">
 		<div class="form-group">
 			<div class="col-sm-2 col-sm-offset-3" style="display: flex;">
 				<button type="button" style="width: 150px;"
@@ -187,12 +288,57 @@
 			</div>
 		</div>
 	</div>
-	<br>
-	<div class="row">
+	<div id="payinBtn" class="row" style="display: none;">
 		<div class="form-group">
 			<div class="col-sm-2 col-sm-offset-3" style="display: flex;">
 				<button type="button" style="width: 150px;"
-					class="btn btn-primary center-block" id="btnPrint" onclick="">พิมพ์ใบนำส่ง</button>
+					class="btn btn-primary center-block" id="btnPayin" onclick="">พิมพ์ใบนำฝาก</button>
+			</div>
+			<div>
+				<div class="col-sm-2 " style="display: flex;">
+					<button type="button" style="width: 150px;"
+						class="btn btn-primary center-block" id="btnUpload" onclick="">Upload</button>
+				</div>
+			</div>
+			<div>
+				<div class="col-sm-2" style="display: flex;">
+					<button type="button" style="width: 150px;"
+						class="btn btn-success center-block" id="btnReqApprove" onclick="">ส่งอนุมัติ</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div id="apprvBtn" class="row" style="display: none;">
+		<div class="form-group">
+			<div class="col-sm-2 col-sm-offset-3" style="display: flex;">
+				<button type="button" style="width: 150px;"
+					class="btn btn-warning center-block" id="btnReqEdit" onclick="">ส่งแก้ไข</button>
+			</div>
+			<div>
+				<div class="col-sm-2 " style="display: flex;">
+					<button type="button" style="width: 150px;"
+						class="btn btn-primary center-block" id="btnViewPayin" onclick="">ดูใบนำฝาก</button>
+				</div>
+			</div>
+			<div id="">
+				<div class="col-sm-2" style="display: flex;">
+					<button type="button" style="width: 150px;"
+						class="btn btn-success center-block" id="btnAprv" onclick="">อนุมัติ</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<br>
+	<div id="reimBtn2" class="row">
+		<div class="form-group">
+			<div class="col-sm-2 col-sm-offset-3" style="display: flex;">
+				<button type="button" style="width: 150px;"
+					class="btn btn-primary center-block" id="btnPrint"
+					onclick="payin();">พิมพ์ใบนำส่ง</button>
 			</div>
 			<div class="col-sm-2" style="display: flex;">
 				<button type="button" style="width: 150px;"
@@ -201,12 +347,6 @@
 			</div>
 		</div>
 	</div>
-
-
-
-
-
-
 </div>
 
 

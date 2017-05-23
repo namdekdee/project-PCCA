@@ -7,11 +7,13 @@
 <script>
 	$('document').ready(function() {
 		initdropdown();
+		checkType();
+
 		$('#myModal').modal('show');
 
 		var length = 1;
 		$("#btnAddCaList").click(function() {
-			alert();
+			//alert();
 			clone = $("#addList").clone()
 			$("#addList").append(clone).attr('id', 'aa-' + length++);
 		})
@@ -67,32 +69,83 @@
 		}
 	}
 
-	function AddCaList() {
+	function checkType() {
+		if (document.getElementById("type") == "") {
+			alert("IF");
 
-		//alert($(".form-group").length)
+		} else if (document.getElementById("type") == "approver") {
+			document.getElementById('lblHeadName').innerHTML = 'อนุมัติเงินทดรอง';
+			alert("Approver comment");
+			$("#caRequest :input").prop("disabled", true);
+			$("#requesterAddList").hide();
+			$("#requesterBtn").hide();
+			$("#Approver").show();
+			$("#Approver :input").prop("disabled", false);
+			$("#approverBtn").show();
+			$("#approverBtn :input").prop("disabled", false);
+		} else if (document.getElementById("type") == "requestEdit") {
+			alert("requester Edit");
+			document.getElementById('lblHeadName').innerHTML = 'แก้ไข';
+			$("#acptCond").hide();
+			$("#Approver").show();
+			$("#Approver :input").prop("disabled", true);
+			$("#btnReqEdit").hide();
+			$("#btnNotApprv").hide();
+			$("#btnApprv").hide();
+		} else if (document.getElementById("type") == "cancel") {
+			alert("Cancel");
+			document.getElementById('lblHeadName').innerHTML = 'สั่งยกเลิก';
+			$("#caRequest :input").prop("disabled", true);
+			$("#requesterAddList").hide();
+			$("#requesterBtn").hide();
+			$("#cancelToFi").show();
+			$("#cancelToFi :input").prop("disabled", false);
+		} else if (document.getElementById("type") == "ficancel") {
+			alert("Finance Cancel");
+			document.getElementById('lblHeadName').innerHTML = 'ยกเลิกเงินทดรอง';
+			$("#Approver").show();
+			$("#Approver :input").prop("disabled", true);
+			$("#btnReqEdit").hide();
+			$("#btnNotApprv").hide();
+			$("#btnApprv").hide();
+			$("#requesterBtn").hide();
+			$("#fiCancel").show();
+		} else if (document.getElementById("type") == "transfer") {
+			alert("Transfer");
+			document.getElementById('lblHeadName').innerHTML = 'แจ้งโอนเงิน';
+			$("#requesterAddList").hide();
+			$("#Approver").show();
+			$("#Approver :input").prop("disabled", true);
+			$("#btnReqEdit").hide();
+			$("#btnNotApprv").hide();
+			$("#btnApprv").hide();
+			$("#requesterBtn").hide();
+			$("#fiCancel").show();
+			$("#fiCancel :input").prop("disabled", true);
+			$("#btnFiCancel").hide();
+			$("#transfer").show();
+			$("#transferBtn").show();
+		} else {
+			alert("Don't get Cash");
+			document.getElementById('lblHeadName').innerHTML = 'แจ้งไม่ได้รับเงิน';
+			$("#requesterAddList").hide();
+			$("#Approver").show();
+			$("#Approver :input").prop("disabled", true);
+			$("#btnReqEdit").hide();
+			$("#btnNotApprv").hide();
+			$("#btnApprv").hide();
+			$("#requesterBtn").hide();
+			$("#fiCancel").show();
+			$("#fiCancel :input").prop("disabled", false);
+			$("#btnFiCancel").hide();
+			$("#transfer").show();
+			$("#transfer :input").prop("disabled", true);
+			$("#dontGetBtn").show();
 
-		var length = $("#formCompanyDiv").length,
-		//create new id
-		newId = "AmountCaDiv-" + length,
-		//clone first element with new id
-		clone = $("#AmountCaDiv").clone().attr("id", newId);
-		//append clone on the end
-		$("#addCompanyDiv").append(clone);
-		//$("#addFromCaCompany").clone().appendTo("#addFromCaCompany");
-
-		//get length of selections
-		length = $("#formCompanyDiv").length,
-		//create new id
-		newId = "formCompanyDiv-" + length,
-		//clone first element with new id
-		clone = $("#formCompanyDiv").clone().attr("id", newId);
-		clone.children('.form-control').attr('id', 'ddlCompany-' + length++);
-		//append clone on the end
-		$("#addCompanyDiv").append(clone);
-		//get length of selections
+		}
 	}
 </script>
-<div>
+<div id="caRequest">
 	<div class="row"
 		style="background-color: #DCDCDC; padding-top: .5em; display: flex; flex-flow: row nowrap; height: 2.5em;">
 
@@ -100,7 +153,7 @@
 			<span class="badge">5</span>
 		</div>
 		<div class="col-md-4 col-xs-8 text-center">
-			<label id="lblDlgName" class="PageTitle">ขอเบิกเงินทดรอง</label>
+			<label id="lblHeadName" class="PageTitle">ขอเบิกเงินทดรอง</label>
 		</div>
 		<div class="col-md-4 col-xs-2 text-right">
 			<label id="lblDlgName" class="glyphicon glyphicon-remove-circle"></label>
@@ -239,42 +292,178 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-sm-3 col-sm-offset-5 control-label">
-					<button type="button" style="width: 150px;"
-						class="btn btn-primary center-block" id="btnAddCaList"
-						onclick="length++">เพิ่มรายการ</button>
-				</div> 
-			</div>
 
-			<div class="row">
-				<div class="col-sm-2 col-sm-offset-3">
-					<div class="checkbox">
-						<label> <input id="inputAcceptCond" type="checkbox"
-							class="minimal" style="position: absolute; opacity: 0;">
-							รับทราบเงื่อนไข
-						</label>
+			<div id="requesterAddList">
+				<div class="row">
+					<div class="col-sm-3 col-sm-offset-5 control-label">
+						<button type="button" style="width: 150px;"
+							class="btn btn-primary center-block" id="btnAddCaList"
+							onclick="length++">เพิ่มรายการ</button>
 					</div>
 				</div>
-			</div>
-			<br>
 
-			<div class="row">
-				<div class="form-group">
-					<div class="col-sm-2 col-sm-offset-3" style="display: flex;">
-						<button type="button" style="width: 80%;"
-							class="btn btn-primary center-block" id="btnCaCancel"
-							onclick="location.href='ca_home';">ยกเลิก</button>
+				<div class="row" id="acptCond">
+					<div class="col-sm-2 col-sm-offset-3">
+						<div class="checkbox">
+							<label> <input id="inputAcceptCond" type="checkbox"
+								class="minimal" style="position: absolute; opacity: 0;">
+								รับทราบเงื่อนไข
+							</label>
+						</div>
 					</div>
-					<div>
-						<div class="col-sm-2" style="display: flex;">
-							<button type="button" style="width: 80%;"
-								class="btn btn-primary center-block" id="btnCaReqApprove"
-								onclick="popUpReq();">ขออนุมัติ</button>
+				</div>
+				<br>
+			</div>
+
+			<div id="Approver" style="display: none;">
+				<div class="row" id="aprvComnt">
+					<div class="form-group">
+						<label id="lblCmtAprv" class="col-sm-3 control-label">
+							ความเห็นจากผู้อนุมัติ </label>
+						<div class="col-sm-4">
+							<textarea class="form-control" rows="4" id="commentAprv"></textarea>
 						</div>
 					</div>
 				</div>
 			</div>
+
+			<div id="cancelToFi" style="display: none;">
+				<div class="row">
+					<div class="form-group">
+						<label id="" class="col-sm-3 control-label">
+							ความเห็นแจ้งฝ่ายการเงิน </label>
+						<div class="col-sm-4">
+							<textarea class="form-control" rows="4" id="commentToFi"></textarea>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group">
+						<div>
+							<div class="col-sm-2 col-sm-offset-5" style="display: flex;">
+								<button type="button" style="width: 80%;"
+									class="btn btn-danger center-block" id="btnReqCancel"
+									onclick="">ยกเลิก</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="transfer" style="display: none;">
+				<div class="row">
+					<div class="form-group">
+						<label id="" class="col-sm-3 control-label"> แจ้งการเงิน </label>
+						<div class="col-sm-4">
+							<textarea class="form-control" rows="4" id="tfComment"></textarea>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="fiCancel" style="display: none;">
+				<div class="row">
+					<div class="form-group">
+						<label id="" class="col-sm-3 control-label">
+							ความเห็นฝ่ายการเงิน </label>
+						<div class="col-sm-4">
+							<textarea class="form-control" rows="4" id="fiComment"></textarea>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group">
+						<div>
+							<div class="col-sm-2 col-sm-offset-5" style="display: flex;">
+								<button type="button" style="width: 80%;"
+									class="btn btn-danger center-block" id="btnFiCancel" onclick="">ยกเลิก</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="approverBtn" style="display: none;">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-sm-2 col-sm-offset-5" style="display: flex;">
+							<button type="button" style="width: 80%;"
+								class="btn btn-warning center-block" id="btnReqEdit" onclick="">ส่งแก้ไข</button>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="form-group">
+						<div class="col-sm-2 col-sm-offset-3" style="display: flex;">
+							<button type="button" style="width: 80%;"
+								class="btn btn-danger center-block" id="btnNotApprv" onclick="">ไม่อนุมัติ</button>
+						</div>
+						<div>
+							<div class="col-sm-2" style="display: flex;">
+								<button type="button" style="width: 80%;"
+									class="btn btn-success center-block" id="btnApprv" onclick="">อนุมัติ</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="requesterBtn">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-sm-2 col-sm-offset-3" style="display: flex;">
+							<button type="button" style="width: 80%;"
+								class="btn btn-danger center-block" id="btnCaCancel"
+								onclick="location.href='ca_home';">ยกเลิก</button>
+						</div>
+						<div>
+							<div class="col-sm-2" style="display: flex;">
+								<button type="button" style="width: 80%;"
+									class="btn btn-success center-block" id="btnCaReqApprove"
+									onclick="popUpReq();">ขออนุมัติ</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="transferBtn" style="display: none;">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-sm-2 col-sm-offset-3" style="display: flex;">
+							<button type="button" style="width: 80%;"
+								class="btn btn-danger center-block" id="btnNotGetCash"
+								onclick="">ไม่ได้เงิน</button>
+						</div>
+						<div>
+							<div class="col-sm-2" style="display: flex;">
+								<button type="button" style="width: 80%;"
+									class="btn btn-success center-block" id="btnGetCash" onclick="">ได้รับเงิน</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="dontGetBtn" style="display: none;">
+				<div class="row">
+					<div class="form-group">
+						<div class="col-sm-2 col-sm-offset-3" style="display: flex;">
+							<button type="button" style="width: 80%;"
+								class="btn btn-danger center-block" id="btnNotTransfer"
+								onclick="">ไม่โอนเงิน</button>
+						</div>
+						<div>
+							<div class="col-sm-2" style="display: flex;">
+								<button type="button" style="width: 80%;"
+									class="btn btn-success center-block" id="btnAlready" onclick="">โอนเงินแล้ว</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
 		</div>
 	</form>
 </div>

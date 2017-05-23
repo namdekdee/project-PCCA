@@ -7,13 +7,15 @@
 
 <div>
 	<div class="row"
-		style="background-color: #DCDCDC; padding-top: .5em; display: flex; flex-flow: row nowrap; height: 2.5em;">
+		style="background-color: #DCDCDC; padding-top: .5em; display: flex; flex-flow: row nowrap;">
 
 		<div class="col-md-4 col-xs-2 text-left">
 			<span class="badge">5</span><br>
 		</div>
 		<div class="col-md-4 col-xs-8 text-center">
-			<label id="lblDlgName" class="PageTitle">WithHoldingTax</label>
+			<label id="lblDlgName"
+				style="display: inline-block; word-break: break-word;">บันทึก
+				With Holding Tax</label>
 		</div>
 		<div class="col-md-4 col-xs-2 text-right">
 			<label id="lblDlgName" class="glyphicon glyphicon-remove-circle"></label>
