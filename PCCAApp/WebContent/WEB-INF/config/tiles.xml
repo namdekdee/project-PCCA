@@ -124,6 +124,9 @@
 	<definition name="keyWHT" extends="base.definition">
 		<put-attribute name="body" value="/WEB-INF/views/pcca/keyWHT.jsp"></put-attribute>
 	</definition>
+	<definition name="keyExpense" extends="base.definition">
+		<put-attribute name="body" value="/WEB-INF/views/pcca/keyExpense.jsp"></put-attribute>
+	</definition>
 	<definition name="test" extends="base.definition">
 		<put-attribute name="body" value="/WEB-INF/views/pcca/test.jsp"></put-attribute>
 	</definition>

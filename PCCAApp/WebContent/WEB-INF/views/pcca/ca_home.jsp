@@ -46,21 +46,21 @@
 	<br>
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3">
-			<a href="#" class="btn btn-success btn-lg btn-block" role="button"
+			<a href="ca_report" class="btn btn-success btn-lg btn-block" role="button"
 				aria-pressed="true">รายงาน</a>
 		</div>
 	</div>
 	<br>
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3">
-			<a href="#" class="btn btn-success btn-lg btn-block" role="button"
+			<a href="ca_setup" class="btn btn-success btn-lg btn-block" role="button"
 				aria-pressed="true">Setup</a>
 		</div>
 	</div>
 	<br>
 	<div class="row"
-		style="background-color: gold; height: 2.5em; padding-top: .5em; display: flex; flex-flow: row nowrap;">
-		<div class="col-xs-6 text-left" id="waitAprv" onclick="toggle();">
+		style="background-color: gold; padding-top: .5em; display: flex; flex-flow: row nowrap;">
+		<div class="col-xs-6 text-left" id="waitAprv" onclick="">
 			<a class="accordion-toggle" data-toggle="collapse"
 				data-parent="#accordion" href="#collapse"> <span
 				class="glyphicon glyphicon-chevron-down" style="color: black;">
@@ -113,8 +113,8 @@
 
 	<br>
 	<div class="row"
-		style="background-color: #ff3333; height: 2.5em; padding-top: .5em; display: flex; flex-flow: row nowrap;">
-		<div class="col-xs-6 text-left" id="waitEdit" onclick="toggle();">
+		style="background-color: #ff3333; padding-top: .5em; display: flex; flex-flow: row nowrap;">
+		<div class="col-xs-6 text-left" id="waitEdit" onclick="">
 			<a class="accordion-toggle" data-toggle="collapse"
 				data-parent="#accordion" href="#collapse1"> <span
 				class="glyphicon glyphicon-chevron-down" style="color: black;">

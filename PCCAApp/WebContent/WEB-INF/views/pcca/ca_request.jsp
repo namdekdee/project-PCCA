@@ -125,7 +125,7 @@
 			$("#btnFiCancel").hide();
 			$("#transfer").show();
 			$("#transferBtn").show();
-		} else {
+		} else if(document.getElementById("type") == "transfer"){
 			alert("Don't get Cash");
 			document.getElementById('lblHeadName').innerHTML = 'แจ้งไม่ได้รับเงิน';
 			$("#requesterAddList").hide();
@@ -142,7 +142,7 @@
 			$("#transfer :input").prop("disabled", true);
 			$("#dontGetBtn").show();
 
-		}
+		}else{}
 	}
 </script>
 <div id="caRequest">

@@ -21,21 +21,21 @@
 	</div>
 	<form class="form-horizontal"
 		style="padding-left: 10px; padding-right: 10px;">
-		<div class="box-body">
+		<div class="box-body col-sm-offset-1">
 			<div class="row">
 				<div class="form-group">
-					<label for="ddlCaList" class="col-sm-4 control-label" required>
+					<label class="col-sm-3 control-label" required>
 						<%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
 						จำนวนเงินจ่าย
 					</label>
 					<div class="col-sm-4">
-						<input type="text" id="inputCaObj" class="form-control"
+						<input type="text" id="inputPaidAmt" class="form-control"
 							placeholder="0.00" readonly>
 					</div>
 
 					<div class="col-sm-2 ">
 						<div class="checkbox">
-							<label> <input id="inputAcceptCond" type="checkbox"
+							<label> <input id="inputIncludeTax" type="checkbox"
 								class="minimal" style="position: absolute; opacity: 0;">
 								รวม VAT แล้ว
 							</label>
@@ -45,22 +45,18 @@
 			</div>
 			<div class="row">
 				<div class="form-group">
-					<label for="lblvat" class="col-sm-4 control-label"> <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
+					<label class="col-sm-3 control-label"> <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
 						VAT
 					</label>
 					<div class="col-sm-2">
-						<input type="text" id="inputCaObj" class="form-control"
+						<input type="text" id="inputVat" class="form-control"
 							placeholder="0.00" readonly>
 					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="form-group">
-					<label for="lblvat" class="col-sm-4 control-label"> <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
+					<label class="col-sm-2 control-label"> <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
 						VAT-BASE
 					</label>
 					<div class="col-sm-2">
-						<input type="text" id="inputCaObj" class="form-control"
+						<input type="text" id="inputVatBase" class="form-control"
 							placeholder="0.00" readonly>
 					</div>
 				</div>
@@ -68,71 +64,67 @@
 
 			<div class="row">
 				<div class="form-group">
-					<label for="ddlCaList" class="col-sm-4 control-label" required>
+					<label class="col-sm-3 control-label" required>
 						<%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
 						TAX-NUMBER เลขที่ใบกำกับภาษี
 					</label>
 					<div class="col-sm-4">
-						<input type="text" id="inputCaObj" class="form-control"
+						<input type="text" id="inputTaxNo" class="form-control"
 							placeholder="ระบุ...">
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="form-group">
-					<label for="lblvat" class="col-sm-4 control-label"> <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
+					<label class="col-sm-3 control-label"> <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
 						TAX-ID
 					</label>
 					<div class="col-sm-2">
-						<input type="text" id="inputCaObj" class="form-control"
+						<input type="text" id=inputTaxId class="form-control"
 							placeholder="ระบุ...">
 					</div>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="form-group">
-					<label for="lblvat" class="col-sm-4 control-label"> <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
+					<label class="col-sm-2 control-label"> <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
 						Branch
 					</label>
 					<div class="col-sm-2">
-						<input type="text" id="inputCaObj" class="form-control"
+						<input type="text" id="inputBranch" class="form-control"
 							placeholder="ระบุ...">
 					</div>
 				</div>
 			</div>
 
+
 			<div class="row">
 				<div class="form-group">
-					<label for="lblvat" class="col-sm-4 control-label"> <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
+					<label class="col-sm-3 control-label"> <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
 						วันที่
 					</label>
 					<div class="col-sm-2">
-						<input type="text" id="inputCaObj" class="form-control"
+						<input type="text" id="inputDate" class="form-control"
 							placeholder="30 มี ค 60" readonly>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="form-group">
-					<label for="ddlCaList" class="col-sm-4 control-label" required>
+					<label class="col-sm-3 control-label" required>
 						<%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
 						ชื่อผู้ค้า
 					</label>
-					<div class="col-sm-4">
-						<input type="text" id="inputCaObj" class="form-control"
+					<div class="col-sm-5">
+						<input type="text" id="inputCustName" class="form-control"
 							placeholder="ระบุ...">
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="form-group">
-					<label for="ddlCaList" class="col-sm-4 control-label" required>
+					<label class="col-sm-3 control-label" required>
 						<%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
 						ที่อยู่ผู้ค้า
 					</label>
-					<div class="col-sm-4">
-						<textarea class="form-control" rows="5" id="comment"></textarea>
+					<div class="col-sm-5">
+						<textarea class="form-control" rows="5" id="txtAddr"></textarea>
 					</div>
 				</div>
 			</div>

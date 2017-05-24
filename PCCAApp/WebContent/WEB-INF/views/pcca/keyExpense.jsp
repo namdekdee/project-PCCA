@@ -23,8 +23,8 @@
 				initdropdown();
 				$('#TransportForm').hide();
 				$('#ServiceForm').hide();
-				$('#Accommodation').hide();
-				//$('#Allowance').hide();
+				$('#Accommodation').show();
+				$('#Allowance').hide();
 
 				$('.glyphicon').click(
 						function() {
@@ -295,13 +295,6 @@
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-sm-3 col-sm-offset-5 control-label">
-						<button type="button" style="width: 150px;"
-							class="btn btn-primary pull-right" id="btnAddCaList"
-							onclick="AddExpense();">เพิ่มรายการ</button>
-					</div>
-				</div>
 			</div>
 		</form>
 	</div>
@@ -384,17 +377,6 @@
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-sm-3 col-sm-offset-3 control-label">
-						<button type="button" style="width: 150px;"
-							class="btn btn-primary center-block" id="btnAddCaList"
-							onclick="AddExpense();">เพิ่มรายการ</button>
-					</div>
-					<div class="col-sm-3  control-label">
-						<button type="button" style="width: 150px;"
-							class="btn btn-success center-block" id="btnAddCaList" onclick="">บันทึก</button>
-					</div>
-				</div>
 			</div>
 		</form>
 	</div>
@@ -407,7 +389,7 @@
 			<div class="box-body col-sm-8 col-sm-offset-2" style="">
 				<div class="row">
 					<div class="form-group">
-						<label for="lblvat" class="col-sm-3 control-label"> <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
+						<label for="lblvat" class="col-sm-1 control-label"> <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
 							จังหวัด
 						</label>
 						<div class="col-sm-3">
@@ -419,11 +401,7 @@
 								<option value=""></option>
 							</select>
 						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="form-group">
-						<label for="lblvat" class="col-sm-3 control-label"> <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
+						<label for="lblvat" class="col-sm-1 control-label"> <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
 							อำเภอ
 						</label>
 						<div class="col-sm-3">
@@ -435,11 +413,7 @@
 								<option value=""></option>
 							</select>
 						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="form-group">
-						<label for="lblvat" class="col-sm-3 control-label"> <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
+						<label for="lblvat" class="col-sm-1 control-label"> <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
 							ตำบล
 						</label>
 						<div class="col-sm-3">
@@ -453,12 +427,13 @@
 						</div>
 					</div>
 				</div>
+
 				<div class="row">
 					<div class="form-group">
 						<label for="lblvat" class="col-sm-3 control-label"> <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
 							จำนวนคืน
 						</label>
-						<div class="col-sm-2">
+						<div class="col-sm-3">
 							<input type="text" id="inputCaObj" class="form-control"
 								placeholder="ระบุ...">
 						</div>
@@ -480,7 +455,7 @@
 						<label for="lblvat" class="col-sm-3 control-label"> <%-- 									<spring:message code="member.worktime.criteria.company" /> --%>
 							อัตราแลกเปลี่ยน 1$:
 						</label>
-						<div class="col-sm-2">
+						<div class="col-sm-3">
 							<input type="text" id="inputCaObj" class="form-control"
 								placeholder="ระบุ...">
 						</div>
@@ -553,21 +528,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-sm-3 col-sm-offset-3 control-label">
-						<button type="button" style="width: 150px;"
-							class="btn btn-primary center-block" id="btnAddCaList"
-							onclick="AddExpense();">เพิ่มรายการ</button>
-					</div>
-					<div class="col-sm-3  control-label">
-						<button type="button" style="width: 150px;"
-							class="btn btn-success center-block" id="btnSaveExpense"
-							onclick="">บันทึก</button>
-					</div>
-				</div>
-
 			</div>
-
 		</form>
 	</div>
 	<!-- End Accommodation -->
@@ -598,7 +559,7 @@
 							<label class="radio-inline" style="font-weight: 700;"><input
 								type="radio" name="optRadio" value="radioReqAprvDay"
 								class="setRadio">&nbsp;&nbsp; ครึ่งวัน</label>
-						</div> 
+						</div>
 						<div class="col-sm-3">
 							<label class="radio-inline" style="font-weight: 700;"><input
 								type="radio" name="optRadio" value="radioWorkDay"
@@ -628,82 +589,82 @@
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-sm-3 col-sm-offset-3 control-label">
-						<button type="button" style="width: 150px;"
-							class="btn btn-primary center-block" id="btnAddCaList"
-							onclick="AddExpense();">เพิ่มรายการ</button>
-					</div>
-					<div class="col-sm-3  control-label">
-						<button type="button" style="width: 150px;"
-							class="btn btn-success center-block" id="btnAddCaList" onclick="">บันทึก</button>
-					</div>
-				</div>
-
 			</div>
 
 		</form>
 	</div>
 	<!-- End Allowance -->
-
-
-
-</div>
-<!-- End Div -->
-
-<div class="box-body col-sm-12">
-	<div class="panel-group" id="accordion">
-		<div class="panel panel-default">
-			<div class="panel-heading"
-				style="background-color: rgb(199, 253, 193);">
-				<h6 class="panel-title">
-					<a class="accordion-toggle" data-toggle="collapse"
-						data-parent="#accordion" href="#collapseOne"> <span
-						class="glyphicon glyphicon-chevron-down"> <label class="aa">บันทึกรายการค่าใช้จ่าย
-						</label>
-					</span>
-					</a>
-				</h6>
+	<div class="box-body col-sm-8 col-sm-offset-2" style="">
+		<div class="row">
+			<div class="form-group">
+				<div class="col-sm-3 col-sm-offset-3 control-label">
+					<button type="button" style="width: 150px;"
+						class="btn btn-primary center-block" id="btnAddCaList"
+						onclick="AddExpense();">เพิ่มรายการ</button>
+				</div>
+				<div class="col-sm-3  control-label">
+					<button type="button" style="width: 150px;"
+						class="btn btn-success center-block" id="btnAddCaList" onclick="">บันทึก</button>
+				</div>
 			</div>
-			<div id="collapseOne" class="panel-collapse collapse ">
-				<div class="panel-body">
-					<div class="row">
-						<div
-							style="text-align: center; font-weight: 700; font-size: x-large; color: #00a65a;">Upload
-							File</div>
-						<hr>
-					</div>
-					<div class="row">
-						<div class="col-sm-4 col-sm-offset-1">
-							<input id="input" type="file" class="form-control"
-								data-provides="fileinput" data-show-preview="false">
+		</div>
+
+	</div>
+	<!-- End Div -->
+
+	<div class="box-body col-sm-12">
+		<div class="panel-group" id="accordion">
+			<div class="panel panel-default">
+				<div class="panel-heading"
+					style="background-color: rgb(199, 253, 193);">
+					<h6 class="panel-title">
+						<a class="accordion-toggle" data-toggle="collapse"
+							data-parent="#accordion" href="#collapseOne"> <span
+							class="glyphicon glyphicon-chevron-down"> <label
+								class="aa">บันทึกรายการค่าใช้จ่าย </label>
+						</span>
+						</a>
+					</h6>
+				</div>
+				<div id="collapseOne" class="panel-collapse collapse ">
+					<div class="panel-body">
+						<div class="row">
+							<div
+								style="text-align: center; font-weight: 700; font-size: x-large; color: #00a65a;">Upload
+								File</div>
+							<hr>
 						</div>
-						<div class="form-group">
-							<label class="col-sm-2 control-label"
-								style="margin-top: 7px; text-align: -webkit-right;">
-								เลือกรายการ </label>
-							<div class="col-sm-3">
-								<select id="selListUploadFile" class="form-control"
-									style="width: 100%;" data-placeholder="เลือกรายการ">
-									<option value="">ค่าโทรศัพท์</option>
-									<option value="">ค่าเดินทาง</option>
-								</select>
+						<div class="row">
+							<div class="col-sm-4 col-sm-offset-1">
+								<input id="input" type="file" class="form-control"
+									data-provides="fileinput" data-show-preview="false">
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label"
+									style="margin-top: 7px; text-align: -webkit-right;">
+									เลือกรายการ </label>
+								<div class="col-sm-3">
+									<select id="selListUploadFile" class="form-control"
+										style="width: 100%;" data-placeholder="เลือกรายการ">
+										<option value="">ค่าโทรศัพท์</option>
+										<option value="">ค่าเดินทาง</option>
+									</select>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-10"></div>
-					<div class="col-sm-2  control-label">
-						<button type="button" style="width: 70%;"
-							class="btn btn-success center-block" id="btnSaveUpload"
-							onclick="">บันทึก</button>
+					<div class="row">
+						<div class="col-sm-10"></div>
+						<div class="col-sm-2  control-label">
+							<button type="button" style="width: 70%;"
+								class="btn btn-success center-block" id="btnSaveUpload"
+								onclick="">บันทึก</button>
+						</div>
 					</div>
+					<br>
 				</div>
-				<br>
-			</div>
 
+			</div>
 		</div>
 	</div>
-</div>
-<!-- End Modal Upload -->
+	<!-- End Modal Upload -->
